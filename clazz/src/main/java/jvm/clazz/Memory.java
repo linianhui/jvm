@@ -29,4 +29,15 @@ public class Memory {
         result = result | readByteAsInt();
         return (short) result;
     }
+
+    public int readInt() {
+        int result = readByteAsInt();
+        result <<= 8;
+        result = result | readByteAsInt();
+        result <<= 8;
+        result = result | readByteAsInt();
+        result <<= 8;
+        result = result | readByteAsInt();
+        return result;
+    }
 }

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class MemoryTest {
 
     @Test
-    void readByte() {
+    void test_readByte() {
         Memory memory = new Memory(getBytes());
         Assertions.assertEquals((byte) 0xCA, memory.readByte());
         Assertions.assertEquals(1, memory.getPosition());
@@ -23,12 +23,19 @@ class MemoryTest {
     }
 
     @Test
-    void readShort() {
+    void test_readShort() {
         Memory memory = new Memory(getBytes());
         Assertions.assertEquals((short) 0xCA_FE, memory.readShort());
         Assertions.assertEquals(2, memory.getPosition());
 
         Assertions.assertEquals((short) 0xBA_BE, memory.readShort());
+        Assertions.assertEquals(4, memory.getPosition());
+    }
+
+    @Test
+    void test_readInt() {
+        Memory memory = new Memory(getBytes());
+        Assertions.assertEquals(0xCA_FE_BA_BE, memory.readInt());
         Assertions.assertEquals(4, memory.getPosition());
     }
 
