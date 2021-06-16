@@ -21,5 +21,11 @@ class ClassFileTest extends AbstractTest {
         Assertions.assertTrue(classFile.getAccessFlags().contains(ClassAccessFlag.Public));
         Assertions.assertTrue(classFile.getAccessFlags().contains(ClassAccessFlag.Super));
 
+        Assertions.assertEquals(5, classFile.getThisClass());
+        Assertions.assertEquals(20, classFile.getSuperClass());
+
+        Assertions.assertEquals(1, classFile.getInterfacesCount());
+        Assertions.assertArrayEquals(new int[]{21}, classFile.getInterfaces());
+
     }
 }

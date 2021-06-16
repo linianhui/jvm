@@ -9,6 +9,11 @@ public class ClassFile {
     private final int constantPoolCount;
     private final Constant[] constantPool;
     private final Set<Integer> accessFlags;
+    private final int thisClass;
+    private final int superClass;
+    private final int interfacesCount;
+    private final int[] interfaces;
+
 
     public ClassFile(final Memory memory) {
         this.magic = memory.readInt();
@@ -17,6 +22,10 @@ public class ClassFile {
         this.constantPoolCount = memory.readShortAsInt();
         this.constantPool = Constant.from(memory, this.constantPoolCount);
         this.accessFlags = ClassAccessFlag.from(memory.readShortAsInt());
+        this.thisClass = memory.readShortAsInt();
+        this.superClass = memory.readShortAsInt();
+        this.interfacesCount = memory.readShortAsInt();
+        this.interfaces = memory.readShortAsInts(this.interfacesCount);
     }
 
     public int getMagic() {
@@ -41,5 +50,21 @@ public class ClassFile {
 
     public Set<Integer> getAccessFlags() {
         return accessFlags;
+    }
+
+    public int getThisClass() {
+        return thisClass;
+    }
+
+    public int getSuperClass() {
+        return superClass;
+    }
+
+    public int getInterfacesCount() {
+        return interfacesCount;
+    }
+
+    public int[] getInterfaces() {
+        return interfaces;
     }
 }

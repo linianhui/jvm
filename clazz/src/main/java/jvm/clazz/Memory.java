@@ -41,6 +41,14 @@ public class Memory {
         return i1 << 8 | i2;
     }
 
+    public int[] readShortAsInts(int count) {
+        final int[] ints = new int[count];
+        for (int i = 0; i < count; i++) {
+            ints[i] = readShortAsInt();
+        }
+        return ints;
+    }
+
     public int readInt() {
         int i1 = readByteAsInt();
         int i2 = readByteAsInt();
@@ -58,10 +66,10 @@ public class Memory {
         long l6 = readByteAsLong();
         long l7 = readByteAsLong();
         long l8 = readByteAsLong();
-        return (l1 << 56) | (l2 << 48) | (l3 << 40) | (l4<<32) | (l5 << 24) | (l6 << 16) | (l7 << 8) | l8;
+        return (l1 << 56) | (l2 << 48) | (l3 << 40) | (l4 << 32) | (l5 << 24) | (l6 << 16) | (l7 << 8) | l8;
     }
 
-    public double readDouble(){
+    public double readDouble() {
         return Double.longBitsToDouble(readLong());
     }
 
