@@ -1,7 +1,7 @@
 package jvm.clazz;
 
 public class ConstantClass extends Constant {
-    private int nameIndex;
+    private final int nameIndex;
 
     public ConstantClass(final Memory memory) {
         super(ConstantTag.Class);
