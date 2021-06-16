@@ -1,0 +1,23 @@
+# http://editorconfig.org
+
+root = true
+
+[*]
+charset                  = utf-8
+end_of_line              = lf
+indent_size              = 2
+indent_style             = space
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.java]
+indent_size = 4
+
+[*.gradle]
+indent_size = 4
+
+[*.cmd]
+end_of_line = crlf
+indent_size = 4
