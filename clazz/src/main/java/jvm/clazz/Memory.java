@@ -24,10 +24,14 @@ public class Memory {
     }
 
     public short readShort() {
+        return (short) readUnsignedShort();
+    }
+
+    public int readUnsignedShort(){
         int result = readByteAsInt();
         result <<= 8;
         result = result | readByteAsInt();
-        return (short) result;
+        return result;
     }
 
     public int readInt() {

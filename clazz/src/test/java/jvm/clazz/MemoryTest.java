@@ -24,12 +24,16 @@ class MemoryTest {
 
     @Test
     void test_readShort() {
-        Memory memory = new Memory(getBytes());
-        Assertions.assertEquals((short) 0xCA_FE, memory.readShort());
+        Memory memory = new Memory(new byte[]{(byte) 0xFF, (byte) 0xFF});
+        Assertions.assertEquals(-1, memory.readShort());
         Assertions.assertEquals(2, memory.getPosition());
+    }
 
-        Assertions.assertEquals((short) 0xBA_BE, memory.readShort());
-        Assertions.assertEquals(4, memory.getPosition());
+    @Test
+    void test_readUnsignedShort() {
+        Memory memory = new Memory(new byte[]{(byte) 0xFF, (byte) 0xFF});
+        Assertions.assertEquals(65535, memory.readUnsignedShort());
+        Assertions.assertEquals(2, memory.getPosition());
     }
 
     @Test
