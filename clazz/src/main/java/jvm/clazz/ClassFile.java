@@ -9,9 +9,9 @@ public class ClassFile {
 
     public ClassFile(final Memory memory) {
         this.magic = memory.readInt();
-        this.minorVersion = memory.readUnsignedShort();
-        this.majorVersion = memory.readUnsignedShort();
-        this.constantPoolCount = memory.readUnsignedShort();
+        this.minorVersion = memory.readShortAsInt();
+        this.majorVersion = memory.readShortAsInt();
+        this.constantPoolCount = memory.readShortAsInt();
         this.constantPool = Constant.from(memory, this.constantPoolCount);
     }
 

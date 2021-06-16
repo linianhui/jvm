@@ -28,28 +28,24 @@ public class Memory {
     }
 
     public short readShort() {
-        return (short) readUnsignedShort();
+        return (short) readShortAsInt();
     }
 
-    public int readUnsignedShort() {
-        int result = readByteAsInt();
-        result <<= 8;
-        result = result | readByteAsInt();
-        return result;
+    public int readShortAsInt() {
+        int i1 = readByteAsInt();
+        int i2 = readByteAsInt();
+        return i1 << 8 | i2;
     }
 
     public int readInt() {
-        int result = readByteAsInt();
-        result <<= 8;
-        result = result | readByteAsInt();
-        result <<= 8;
-        result = result | readByteAsInt();
-        result <<= 8;
-        result = result | readByteAsInt();
-        return result;
+        int i1 = readByteAsInt();
+        int i2 = readByteAsInt();
+        int i3 = readByteAsInt();
+        int i4 = readByteAsInt();
+        return (i1 << 24) | (i2 << 16) | (i3 << 8) | i4;
     }
 
-    public float readFloat(){
+    public float readFloat() {
         return Float.intBitsToFloat(readInt());
     }
 

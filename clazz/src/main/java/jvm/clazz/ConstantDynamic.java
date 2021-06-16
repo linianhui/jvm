@@ -6,8 +6,8 @@ public class ConstantDynamic extends Constant {
 
     public ConstantDynamic(final Memory memory) {
         super(ConstantTag.Dynamic);
-        bootstrapMethodAttributeIndex = memory.readUnsignedShort();
-        nameAndTypeIndex = memory.readUnsignedShort();
+        bootstrapMethodAttributeIndex = memory.readShortAsInt();
+        nameAndTypeIndex = memory.readShortAsInt();
     }
 
     public int getBootstrapMethodAttributeIndex() {

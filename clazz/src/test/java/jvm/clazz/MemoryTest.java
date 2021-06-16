@@ -58,9 +58,9 @@ class MemoryTest extends AbstractTest {
     }
 
     @Test
-    void test_readUnsignedShort() {
+    void test_readShortAsInt() {
         Memory memory = newMemory(0xFF, 0xFF);
-        Assertions.assertEquals(65535, memory.readUnsignedShort());
+        Assertions.assertEquals(65535, memory.readShortAsInt());
         Assertions.assertEquals(2, memory.getPosition());
     }
 

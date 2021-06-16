@@ -6,7 +6,7 @@ public class ConstantUtf8 extends Constant {
 
     public ConstantUtf8(Memory memory) {
         super(ConstantTag.Utf8);
-        this.length = memory.readUnsignedShort();
+        this.length = memory.readShortAsInt();
         this.value = ModifiedUtf8.toString(memory.slice(this.length));
     }
 
