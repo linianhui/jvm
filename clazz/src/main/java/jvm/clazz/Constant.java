@@ -10,7 +10,7 @@ public abstract class Constant {
     public static Constant[] from(final Memory memory, int count) {
         final Constant[] constants = new Constant[count + 1];
         for (int i = 1; i <= count; i++) {
-            constants[i]= from(memory);
+            //constants[i]= from(memory);
         }
         return constants;
     }
@@ -19,7 +19,7 @@ public abstract class Constant {
         byte tag = memory.readByte();
         switch (tag){
             case ConstantTag.Utf8:
-                return new ConstantUtf8(tag, memory);
+                return new ConstantUtf8(memory);
             case ConstantTag.Class:
                 return new ConstantClass(memory);
             case ConstantTag.Dynamic:

@@ -2,11 +2,13 @@ package jvm.clazz;
 
 public class Memory {
     private byte[] raw;
+    private int begin;
     private int position;
     private int length;
 
     public Memory(final byte[] raw) {
         this.raw = raw;
+        this.begin = 0;
         this.position = 0;
         this.length = raw.length;
     }
@@ -16,9 +18,9 @@ public class Memory {
     }
 
     public byte readByte() {
-        int index = position;
+        byte b = raw[this.begin + this.position];
         position = position + 1;
-        return raw[index];
+        return b;
     }
 
     public int readByteAsInt() {
@@ -49,5 +51,14 @@ public class Memory {
 
     public int getLength() {
         return length;
+    }
+
+    public Memory slice(int length) {
+        final Memory memory = new Memory(this.raw);
+        memory.begin = this.position;
+        memory.position = 0;
+        memory.length = this.length - this.position;
+        this.position = this.position + length;
+        return memory;
     }
 }
