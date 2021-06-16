@@ -7,6 +7,18 @@ import org.junit.jupiter.api.Test;
 class MemoryTest extends AbstractTest {
 
     @Test
+    void test_getLength() {
+        Memory memory = newMemory(0xCA, 0xFE, 0xBA, 0xBE);
+        Assertions.assertEquals(4, memory.getLength());
+    }
+
+    @Test
+    void test_getPosition() {
+        Memory memory = newMemory(0xCA, 0xFE, 0xBA, 0xBE);
+        Assertions.assertEquals(0, memory.getPosition());
+    }
+
+    @Test
     void test_readByte() {
         Memory memory = newMemory(0xCA, 0xFE, 0xBA, 0xBE);
         Assertions.assertEquals((byte) 0xCA, memory.readByte());
@@ -19,6 +31,22 @@ class MemoryTest extends AbstractTest {
         Assertions.assertEquals(3, memory.getPosition());
 
         Assertions.assertEquals((byte) 0xBE, memory.readByte());
+        Assertions.assertEquals(4, memory.getPosition());
+    }
+
+    @Test
+    void test_readByteAsInt() {
+        Memory memory = newMemory(0xCA, 0xFE, 0xBA, 0xBE);
+        Assertions.assertEquals( 0xCA, memory.readByteAsInt());
+        Assertions.assertEquals(1, memory.getPosition());
+
+        Assertions.assertEquals(0xFE, memory.readByteAsInt());
+        Assertions.assertEquals(2, memory.getPosition());
+
+        Assertions.assertEquals( 0xBA, memory.readByteAsInt());
+        Assertions.assertEquals(3, memory.getPosition());
+
+        Assertions.assertEquals( 0xBE, memory.readByteAsInt());
         Assertions.assertEquals(4, memory.getPosition());
     }
 
