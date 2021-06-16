@@ -3,8 +3,8 @@ package jvm.clazz;
 public class ConstantClass extends Constant {
     private int nameIndex;
 
-    public ConstantClass(byte tag, final Memory memory) {
-        super(tag);
+    public ConstantClass(final Memory memory) {
+        super(ConstantTag.Class);
         nameIndex = memory.readUnsignedShort();
     }
 

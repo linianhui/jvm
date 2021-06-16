@@ -1,9 +1,9 @@
 package jvm.clazz;
 
-public class Constant {
+public abstract class Constant {
     private byte tag;
 
-    public Constant(byte tag) {
+    protected Constant(byte tag) {
         this.tag = tag;
     }
 
@@ -21,7 +21,7 @@ public class Constant {
             case ConstantTag.Utf8:
                 return new ConstantUtf8(tag, memory);
             case ConstantTag.Class:
-                return new ConstantClass(tag, memory);
+                return new ConstantClass(memory);
         }
         return null;
     }
