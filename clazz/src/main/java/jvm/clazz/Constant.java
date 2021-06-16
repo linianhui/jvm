@@ -17,7 +17,7 @@ public abstract class Constant {
 
     private static Constant from(final Memory memory) {
         byte tag = memory.readByte();
-        switch (tag){
+        switch (tag) {
             case ConstantTag.Utf8:
                 return new ConstantUtf8(memory);
             case ConstantTag.Integer:
@@ -53,7 +53,7 @@ public abstract class Constant {
             case ConstantTag.Package:
                 return new ConstantPackage(memory);
         }
-        return null;
+        throw new RuntimeException("unsupported tag " + tag);
     }
 
     public byte getTag() {
