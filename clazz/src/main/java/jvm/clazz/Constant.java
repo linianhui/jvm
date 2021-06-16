@@ -20,14 +20,16 @@ public abstract class Constant {
         switch (tag){
             case ConstantTag.Utf8:
                 return new ConstantUtf8(memory);
+            case ConstantTag.Integer:
+                return new ConstantInteger(memory);
+            case ConstantTag.Float:
+                return new ConstantFloat(memory);
             case ConstantTag.Class:
                 return new ConstantClass(memory);
             case ConstantTag.Dynamic:
                 return new ConstantDynamic(memory);
             case ConstantTag.FieldRef:
                 return new ConstantFieldRef(memory);
-            case ConstantTag.Integer:
-                return new ConstantInteger(memory);
         }
         return null;
     }
