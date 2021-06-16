@@ -30,6 +30,8 @@ public abstract class Constant {
                 return new ConstantDouble(memory);
             case ConstantTag.Class:
                 return new ConstantClass(memory);
+            case ConstantTag.String:
+                return new ConstantString(memory);
             case ConstantTag.Dynamic:
                 return new ConstantDynamic(memory);
             case ConstantTag.FieldRef:
