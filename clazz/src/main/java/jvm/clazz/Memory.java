@@ -27,6 +27,10 @@ public class Memory {
         return readByte() & 0xFF;
     }
 
+    public long readByteAsLong() {
+        return readByteAsInt();
+    }
+
     public short readShort() {
         return (short) readShortAsInt();
     }
@@ -43,6 +47,18 @@ public class Memory {
         int i3 = readByteAsInt();
         int i4 = readByteAsInt();
         return (i1 << 24) | (i2 << 16) | (i3 << 8) | i4;
+    }
+
+    public long readLong() {
+        long l1 = readByteAsLong();
+        long l2 = readByteAsLong();
+        long l3 = readByteAsLong();
+        long l4 = readByteAsLong();
+        long l5 = readByteAsLong();
+        long l6 = readByteAsLong();
+        long l7 = readByteAsLong();
+        long l8 = readByteAsLong();
+        return (l1 << 56) | (l2 << 48) | (l3 << 40) | (l4<<32) | (l5 << 24) | (l6 << 16) | (l7 << 8) | l8;
     }
 
     public float readFloat() {

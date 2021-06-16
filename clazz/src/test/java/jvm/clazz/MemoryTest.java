@@ -37,16 +37,32 @@ class MemoryTest extends AbstractTest {
     @Test
     void test_readByteAsInt() {
         Memory memory = newMemory(0xCA, 0xFE, 0xBA, 0xBE);
-        Assertions.assertEquals( 0xCA, memory.readByteAsInt());
+        Assertions.assertEquals(0xCA, memory.readByteAsInt());
         Assertions.assertEquals(1, memory.getPosition());
 
         Assertions.assertEquals(0xFE, memory.readByteAsInt());
         Assertions.assertEquals(2, memory.getPosition());
 
-        Assertions.assertEquals( 0xBA, memory.readByteAsInt());
+        Assertions.assertEquals(0xBA, memory.readByteAsInt());
         Assertions.assertEquals(3, memory.getPosition());
 
-        Assertions.assertEquals( 0xBE, memory.readByteAsInt());
+        Assertions.assertEquals(0xBE, memory.readByteAsInt());
+        Assertions.assertEquals(4, memory.getPosition());
+    }
+
+    @Test
+    void test_readByteAsLong() {
+        Memory memory = newMemory(0xCA, 0xFE, 0xBA, 0xBE);
+        Assertions.assertEquals(0xCAL, memory.readByteAsLong());
+        Assertions.assertEquals(1, memory.getPosition());
+
+        Assertions.assertEquals(0xFEL, memory.readByteAsLong());
+        Assertions.assertEquals(2, memory.getPosition());
+
+        Assertions.assertEquals(0xBAL, memory.readByteAsLong());
+        Assertions.assertEquals(3, memory.getPosition());
+
+        Assertions.assertEquals(0xBEL, memory.readByteAsLong());
         Assertions.assertEquals(4, memory.getPosition());
     }
 
@@ -78,4 +94,10 @@ class MemoryTest extends AbstractTest {
         Assertions.assertEquals(4, memory.getPosition());
     }
 
+    @Test
+    void test_readLong() {
+        Memory memory = newMemory(0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xF0);
+        Assertions.assertEquals(0x12_34_56_78_9A_BC_DE_F0L, memory.readLong());
+        Assertions.assertEquals(8, memory.getPosition());
+    }
 }
