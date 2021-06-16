@@ -15,5 +15,6 @@ class ClassFileTest extends AbstractTest {
         Assertions.assertEquals(0, classFile.getMinorVersion());
         Assertions.assertEquals(52, classFile.getMajorVersion());
         Assertions.assertEquals(90, classFile.getConstantPoolCount());
+        Assertions.assertEquals("(D)V", ((ConstantUtf8)classFile.getConstantPool()[89]).getValue());
     }
 }

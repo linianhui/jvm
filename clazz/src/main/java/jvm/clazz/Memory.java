@@ -77,7 +77,7 @@ public class Memory {
         final Memory memory = new Memory(this.raw);
         memory.begin = this.position;
         memory.position = 0;
-        memory.length = this.length - this.position;
+        memory.length = length;
         this.position = this.position + length;
         return memory;
     }

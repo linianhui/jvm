@@ -9,14 +9,18 @@ public abstract class Constant {
 
     public static Constant[] from(final Memory memory, int count) {
         final Constant[] constants = new Constant[count + 1];
-        for (int i = 1; i <= count; i++) {
-            //constants[i]= from(memory);
+        for (int i = 1; i < count; i++) {
+            byte tag = memory.readByte();
+            constants[i] = from(memory, tag);
+            if (tag == ConstantTag.Double || tag == ConstantTag.Long) {
+                i++;
+            }
         }
         return constants;
     }
 
-    private static Constant from(final Memory memory) {
-        byte tag = memory.readByte();
+    private static Constant from(final Memory memory, byte tag) {
+
         switch (tag) {
             case ConstantTag.Utf8:
                 return new ConstantUtf8(memory);
