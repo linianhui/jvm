@@ -44,6 +44,8 @@ public abstract class Constant {
                 return new ConstantNameAndType(memory);
             case ConstantTag.MethodHandle:
                 return new ConstantMethodHandle(memory);
+            case ConstantTag.MethodType:
+                return new ConstantMethodType(memory);
         }
         return null;
     }
