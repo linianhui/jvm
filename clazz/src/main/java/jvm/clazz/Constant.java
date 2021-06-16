@@ -46,6 +46,8 @@ public abstract class Constant {
                 return new ConstantMethodType(memory);
             case ConstantTag.Dynamic:
                 return new ConstantDynamic(memory);
+            case ConstantTag.InvokeDynamic:
+                return new ConstantInvokeDynamic(memory);
         }
         return null;
     }
