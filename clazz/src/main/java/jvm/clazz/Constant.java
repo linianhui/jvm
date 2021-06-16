@@ -26,6 +26,8 @@ public abstract class Constant {
                 return new ConstantFloat(memory);
             case ConstantTag.Long:
                 return new ConstantLong(memory);
+            case ConstantTag.Double:
+                return new ConstantDouble(memory);
             case ConstantTag.Class:
                 return new ConstantClass(memory);
             case ConstantTag.Dynamic:
