@@ -6,14 +6,15 @@ package jvm.clazz;
 public class ModifiedUtf8 {
 
     public static String toString(final Memory memory) {
-        int endIndex = memory.getLength() - 1;
-        char[] chars = new char[endIndex + 1];
+        int length = memory.getLength();
+        int endIndex = length - 1;
+        int[] codePoints = new int[length];
         int count = 0;
-        for (int i = 0; i <= endIndex; i++) {
+        for (int i = 0; i < length; i++) {
             int x = memory.readByteAsInt();
             // 0_1111111
             if ((x >>> 7)==0b00000000) {
-                chars[i] = (char) x;
+                codePoints[count] =  x;
                 count++;
                 continue;
             }
@@ -24,8 +25,9 @@ public class ModifiedUtf8 {
             int y = memory.readByteAsInt();
             // 110_11111 && 10_111111
             if ((x >>> 5)==0b00000_110 && (y >>> 6)==0b000000_10) {
-                chars[i] = (char) (((x & 0b000_11111) << 6) + (y & 0b00_111111));
+                codePoints[count] =  (((x & 0b000_11111) << 6) + (y & 0b00_111111));
                 count++;
+                i+=1;
                 continue;
             }
 
@@ -35,12 +37,12 @@ public class ModifiedUtf8 {
             int z = memory.readByteAsInt();
             // 1110_1111 && 10_111111 && 10_111111
             if ((x >>> 4)==0b0000_1110 && (y >>> 6)==0b000000_10 && (z >>> 6)==0b000000_10) {
-                chars[i] = (char) (((x & 0b0000_1111) << 12) + ((y & 0b00_111111) << 6) + (z & 0b00_111111));
+                codePoints[count] =  (((x & 0b0000_1111) << 12) + ((y & 0b00_111111) << 6) + (z & 0b00_111111));
                 count++;
-                continue;
+                i+=2;
             }
         }
-        return new String(chars, 0, count);
+        return new String(codePoints, 0, count);
     }
 }
 
