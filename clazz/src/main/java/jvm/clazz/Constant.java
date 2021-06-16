@@ -32,8 +32,6 @@ public abstract class Constant {
                 return new ConstantClass(memory);
             case ConstantTag.String:
                 return new ConstantString(memory);
-            case ConstantTag.Dynamic:
-                return new ConstantDynamic(memory);
             case ConstantTag.FieldRef:
                 return new ConstantFieldRef(memory);
             case ConstantTag.MethodRef:
@@ -46,6 +44,8 @@ public abstract class Constant {
                 return new ConstantMethodHandle(memory);
             case ConstantTag.MethodType:
                 return new ConstantMethodType(memory);
+            case ConstantTag.Dynamic:
+                return new ConstantDynamic(memory);
         }
         return null;
     }
