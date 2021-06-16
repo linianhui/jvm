@@ -71,4 +71,11 @@ class MemoryTest extends AbstractTest {
         Assertions.assertEquals(4, memory.getPosition());
     }
 
+    @Test
+    void test_readFloat() {
+        Memory memory = newMemory(0x40, 0x49, 0x0F, 0xDB);
+        Assertions.assertEquals(3.14159265f, memory.readFloat());
+        Assertions.assertEquals(4, memory.getPosition());
+    }
+
 }

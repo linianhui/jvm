@@ -49,6 +49,10 @@ public class Memory {
         return result;
     }
 
+    public float readFloat(){
+        return Float.intBitsToFloat(readInt());
+    }
+
     public int getLength() {
         return length;
     }
