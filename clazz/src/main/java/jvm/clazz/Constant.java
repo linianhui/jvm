@@ -40,6 +40,8 @@ public abstract class Constant {
                 return new ConstantMethodRef(memory);
             case ConstantTag.InterfaceMethodRef:
                 return new ConstantInterfaceMethodRef(memory);
+            case ConstantTag.NameAndType:
+                return new ConstantNameAndType(memory);
         }
         return null;
     }
