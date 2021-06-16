@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class ConstantInvokeDynamicTest extends AbstractTest {
 
     @Test
-    void test_ConstantDynamic() {
+    void test_ConstantInvokeDynamic() {
         Memory memory = newMemory(0x00, 0x12, 0x00, 0x13);
         ConstantInvokeDynamic constant = new ConstantInvokeDynamic(memory);
         Assertions.assertEquals(ConstantTag.InvokeDynamic, constant.getTag());

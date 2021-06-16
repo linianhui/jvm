@@ -48,6 +48,10 @@ public abstract class Constant {
                 return new ConstantDynamic(memory);
             case ConstantTag.InvokeDynamic:
                 return new ConstantInvokeDynamic(memory);
+            case ConstantTag.Module:
+                return new ConstantModule(memory);
+            case ConstantTag.Package:
+                return new ConstantPackage(memory);
         }
         return null;
     }
