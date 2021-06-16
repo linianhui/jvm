@@ -61,6 +61,10 @@ public class Memory {
         return (l1 << 56) | (l2 << 48) | (l3 << 40) | (l4<<32) | (l5 << 24) | (l6 << 16) | (l7 << 8) | l8;
     }
 
+    public double readDouble(){
+        return Double.longBitsToDouble(readLong());
+    }
+
     public float readFloat() {
         return Float.intBitsToFloat(readInt());
     }

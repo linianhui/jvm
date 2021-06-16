@@ -100,4 +100,11 @@ class MemoryTest extends AbstractTest {
         Assertions.assertEquals(0x12_34_56_78_9A_BC_DE_F0L, memory.readLong());
         Assertions.assertEquals(8, memory.getPosition());
     }
+
+    @Test
+    void test_readDouble() {
+        Memory memory = newMemory(0x40, 0x09, 0x21, 0xFB, 0x54, 0x44, 0x2D, 0x18);
+        Assertions.assertEquals(3.1415_9265_3589_7932_3846D, memory.readDouble());
+        Assertions.assertEquals(8, memory.getPosition());
+    }
 }
