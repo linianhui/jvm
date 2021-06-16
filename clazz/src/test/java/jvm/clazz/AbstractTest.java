@@ -16,4 +16,16 @@ public abstract class AbstractTest {
         }
         return null;
     }
+
+    protected byte[] newByteArray(int... arg) {
+        byte[] bytes = new byte[arg.length];
+        for (int i = 0; i < arg.length; i++) {
+            bytes[i] = (byte) arg[i];
+        }
+        return bytes;
+    }
+
+    protected Memory newMemory(int... arg){
+        return new Memory(newByteArray(arg));
+    }
 }
