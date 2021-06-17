@@ -30,7 +30,7 @@ class MethodTest extends AbstractTest {
         Assertions.assertEquals(2, methods.length);
 
         Assertions.assertEquals(1, methods[0].getAccessFlags().size());
-        Assertions.assertTrue(methods[0].getAccessFlags().contains(FieldAccessFlag.Public));
+        Assertions.assertTrue(methods[0].getAccessFlags().contains(Field.AccessFlag.Public));
         Assertions.assertEquals(45, methods[0].getNameIndex());
         Assertions.assertEquals(46, methods[0].getDescriptorIndex());
         Assertions.assertEquals(1, methods[0].getAttributesCount());
@@ -39,8 +39,8 @@ class MethodTest extends AbstractTest {
         Assertions.assertEquals(29, methods[0].getAttributes()[0].getLength());
 
         Assertions.assertEquals(2, methods[1].getAccessFlags().size());
-        Assertions.assertTrue(methods[1].getAccessFlags().contains(FieldAccessFlag.Public));
-        Assertions.assertTrue(methods[1].getAccessFlags().contains(FieldAccessFlag.Static));
+        Assertions.assertTrue(methods[1].getAccessFlags().contains(Field.AccessFlag.Public));
+        Assertions.assertTrue(methods[1].getAccessFlags().contains(Field.AccessFlag.Static));
         Assertions.assertEquals(49, methods[1].getNameIndex());
         Assertions.assertEquals(50, methods[1].getDescriptorIndex());
         Assertions.assertEquals(2, methods[1].getAttributesCount());
