@@ -42,6 +42,8 @@ public class Attribute {
                 return new SignatureAttribute(clazz, nameIndex, name, memory);
             case Name.SourceFile:
                 return new SourceFileAttribute(clazz, nameIndex, name, memory);
+            case Name.Deprecated:
+                return new DeprecatedAttribute(clazz, nameIndex, name, memory);
             default:
                 return new Attribute(clazz, nameIndex, name, memory, true);
         }
@@ -78,5 +80,6 @@ public class Attribute {
         String ConstantValue = "ConstantValue";
         String Signature = "Signature";
         String SourceFile = "SourceFile";
+        String Deprecated = "Deprecated";
     }
 }
