@@ -1,6 +1,7 @@
 package jvm.clazz;
 
 
+import jvm.clazz.constant.ConstantUtf8;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
