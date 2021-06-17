@@ -31,10 +31,10 @@ class ClazzTest extends AbstractTest {
         Assertions.assertEquals(9, clazz.getFields().getCount());
         Assertions.assertEquals(43, clazz.getFields().getItems()[8].getNameIndex());
 
-        Assertions.assertEquals(4, clazz.getMethodsCount());
-        Assertions.assertEquals(53, clazz.getMethods()[3].getNameIndex());
+        Assertions.assertEquals(4, clazz.getMethods().getCount());
+        Assertions.assertEquals(53, clazz.getMethods().getItems()[3].getNameIndex());
 
-        Assertions.assertEquals(2, clazz.getAttributesCount());
-        Assertions.assertEquals(58, clazz.getAttributes()[1].getNameIndex());
+        Assertions.assertEquals(2, clazz.getAttributes().getCount());
+        Assertions.assertEquals(58, clazz.getAttributes().getItems()[1].getNameIndex());
     }
 }

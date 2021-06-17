@@ -14,12 +14,12 @@ class AttributeTest extends AbstractTest {
             0x00, 0x3A, 0x00, 0x00, 0x00, 0x02, 0x00, 0x3B
         );
 
-        Attribute[] attributes = Attribute.from(null, memory, 2);
+        Attributes attributes = Attributes.from(null, memory, 2);
 
-        Assertions.assertEquals(2, attributes.length);
-        Assertions.assertEquals(56, attributes[0].getNameIndex());
-        Assertions.assertEquals(2, attributes[0].getLength());
-        Assertions.assertEquals(58, attributes[1].getNameIndex());
-        Assertions.assertEquals(2, attributes[1].getLength());
+        Assertions.assertEquals(2, attributes.getItems().length);
+        Assertions.assertEquals(56, attributes.getItems()[0].getNameIndex());
+        Assertions.assertEquals(2, attributes.getItems()[0].getLength());
+        Assertions.assertEquals(58, attributes.getItems()[1].getNameIndex());
+        Assertions.assertEquals(2, attributes.getItems()[1].getLength());
     }
 }

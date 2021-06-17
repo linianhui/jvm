@@ -3,7 +3,7 @@ package jvm.clazz;
 import java.util.HashSet;
 import java.util.Set;
 
-import jvm.clazz.attribute.Attribute;
+import jvm.clazz.attribute.Attributes;
 import jvm.clazz.constant.Constants;
 import jvm.clazz.util.BitUtil;
 
@@ -18,10 +18,8 @@ public class Clazz {
     private final int interfacesCount;
     private final int[] interfaces;
     private final Fields fields;
-    private final int methodsCount;
-    private final Method[] methods;
-    private final int attributesCount;
-    private final Attribute[] attributes;
+    private final Methods methods;
+    private final Attributes attributes;
 
     public Clazz(final Memory memory) {
         this.magic = memory.readInt();
@@ -36,10 +34,10 @@ public class Clazz {
         this.interfaces = memory.readShortAsInts(this.interfacesCount);
         int fieldsCount = memory.readShortAsInt();
         this.fields = Fields.from(this, memory, fieldsCount);
-        this.methodsCount = memory.readShortAsInt();
-        this.methods = Method.from(this, memory, this.methodsCount);
-        this.attributesCount = memory.readShortAsInt();
-        this.attributes = Attribute.from(this, memory, this.attributesCount);
+        int methodsCount = memory.readShortAsInt();
+        this.methods = Methods.from(this, memory, methodsCount);
+        int attributesCount = memory.readShortAsInt();
+        this.attributes = Attributes.from(this, memory, attributesCount);
     }
 
     public int getMagic() {
@@ -82,19 +80,11 @@ public class Clazz {
         return fields;
     }
 
-    public int getMethodsCount() {
-        return methodsCount;
-    }
-
-    public Method[] getMethods() {
+    public Methods getMethods() {
         return methods;
     }
 
-    public int getAttributesCount() {
-        return attributesCount;
-    }
-
-    public Attribute[] getAttributes() {
+    public Attributes getAttributes() {
         return attributes;
     }
 

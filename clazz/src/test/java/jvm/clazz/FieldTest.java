@@ -23,10 +23,10 @@ class FieldTest extends AbstractTest {
         Assertions.assertTrue(fields.getItems()[0].getAccessFlags().contains(Field.AccessFlag.Final));
         Assertions.assertEquals(22, fields.getItems()[0].getNameIndex());
         Assertions.assertEquals(23, fields.getItems()[0].getDescriptorIndex());
-        Assertions.assertEquals(1, fields.getItems()[0].getAttributesCount());
-        Assertions.assertEquals(1, fields.getItems()[0].getAttributes().length);
-        Assertions.assertEquals(24, fields.getItems()[0].getAttributes()[0].getNameIndex());
-        Assertions.assertEquals(2, fields.getItems()[0].getAttributes()[0].getLength());
+        Assertions.assertEquals(1, fields.getItems()[0].getAttributes().getCount());
+        Assertions.assertEquals(1, fields.getItems()[0].getAttributes().getItems().length);
+        Assertions.assertEquals(24, fields.getItems()[0].getAttributes().getItems()[0].getNameIndex());
+        Assertions.assertEquals(2, fields.getItems()[0].getAttributes().getItems()[0].getLength());
 
         Assertions.assertEquals(3, fields.getItems()[1].getAccessFlags().size());
         Assertions.assertTrue(fields.getItems()[1].getAccessFlags().contains(Field.AccessFlag.Public));
@@ -34,10 +34,10 @@ class FieldTest extends AbstractTest {
         Assertions.assertTrue(fields.getItems()[1].getAccessFlags().contains(Field.AccessFlag.Final));
         Assertions.assertEquals(26, fields.getItems()[1].getNameIndex());
         Assertions.assertEquals(27, fields.getItems()[1].getDescriptorIndex());
-        Assertions.assertEquals(1, fields.getItems()[1].getAttributesCount());
-        Assertions.assertEquals(1, fields.getItems()[1].getAttributes().length);
-        Assertions.assertEquals(24, fields.getItems()[1].getAttributes()[0].getNameIndex());
-        Assertions.assertEquals(2, fields.getItems()[1].getAttributes()[0].getLength());
+        Assertions.assertEquals(1, fields.getItems()[1].getAttributes().getCount());
+        Assertions.assertEquals(1, fields.getItems()[1].getAttributes().getItems().length);
+        Assertions.assertEquals(24, fields.getItems()[1].getAttributes().getItems()[0].getNameIndex());
+        Assertions.assertEquals(2, fields.getItems()[1].getAttributes().getItems()[0].getLength());
 
     }
 }

@@ -25,28 +25,28 @@ class MethodTest extends AbstractTest {
             0x17, 0x00, 0x49, 0x00, 0x18, 0x00, 0x52, 0x00, 0x19, 0x00, 0x33, 0x00, 0x00, 0x00, 0x04,
             0x00, 0x01, 0x00, 0x34
         );
-        Method[] methods = Method.from(null, memory, 2);
+        Methods methods = Methods.from(null, memory, 2);
 
-        Assertions.assertEquals(2, methods.length);
+        Assertions.assertEquals(2, methods.getItems().length);
 
-        Assertions.assertEquals(1, methods[0].getAccessFlags().size());
-        Assertions.assertTrue(methods[0].getAccessFlags().contains(Field.AccessFlag.Public));
-        Assertions.assertEquals(45, methods[0].getNameIndex());
-        Assertions.assertEquals(46, methods[0].getDescriptorIndex());
-        Assertions.assertEquals(1, methods[0].getAttributesCount());
-        Assertions.assertEquals(1, methods[0].getAttributes().length);
-        Assertions.assertEquals(47, methods[0].getAttributes()[0].getNameIndex());
-        Assertions.assertEquals(29, methods[0].getAttributes()[0].getLength());
+        Assertions.assertEquals(1, methods.getItems()[0].getAccessFlags().size());
+        Assertions.assertTrue(methods.getItems()[0].getAccessFlags().contains(Field.AccessFlag.Public));
+        Assertions.assertEquals(45, methods.getItems()[0].getNameIndex());
+        Assertions.assertEquals(46, methods.getItems()[0].getDescriptorIndex());
+        Assertions.assertEquals(1, methods.getItems()[0].getAttributes().getCount());
+        Assertions.assertEquals(1, methods.getItems()[0].getAttributes().getItems().length);
+        Assertions.assertEquals(47, methods.getItems()[0].getAttributes().getItems()[0].getNameIndex());
+        Assertions.assertEquals(29, methods.getItems()[0].getAttributes().getItems()[0].getLength());
 
-        Assertions.assertEquals(2, methods[1].getAccessFlags().size());
-        Assertions.assertTrue(methods[1].getAccessFlags().contains(Field.AccessFlag.Public));
-        Assertions.assertTrue(methods[1].getAccessFlags().contains(Field.AccessFlag.Static));
-        Assertions.assertEquals(49, methods[1].getNameIndex());
-        Assertions.assertEquals(50, methods[1].getDescriptorIndex());
-        Assertions.assertEquals(2, methods[1].getAttributesCount());
-        Assertions.assertEquals(2, methods[1].getAttributes().length);
-        Assertions.assertEquals(47, methods[1].getAttributes()[0].getNameIndex());
-        Assertions.assertEquals(147, methods[1].getAttributes()[0].getLength());
+        Assertions.assertEquals(2, methods.getItems()[1].getAccessFlags().size());
+        Assertions.assertTrue(methods.getItems()[1].getAccessFlags().contains(Field.AccessFlag.Public));
+        Assertions.assertTrue(methods.getItems()[1].getAccessFlags().contains(Field.AccessFlag.Static));
+        Assertions.assertEquals(49, methods.getItems()[1].getNameIndex());
+        Assertions.assertEquals(50, methods.getItems()[1].getDescriptorIndex());
+        Assertions.assertEquals(2, methods.getItems()[1].getAttributes().getCount());
+        Assertions.assertEquals(2, methods.getItems()[1].getAttributes().getItems().length);
+        Assertions.assertEquals(47, methods.getItems()[1].getAttributes().getItems()[0].getNameIndex());
+        Assertions.assertEquals(147, methods.getItems()[1].getAttributes().getItems()[0].getLength());
 
     }
 }

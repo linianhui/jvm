@@ -17,14 +17,6 @@ public class Attribute {
         this.memory = memory.slice(this.length);
     }
 
-    public static Attribute[] from(final Clazz clazz, final Memory memory, int count) {
-        final Attribute[] attributes = new Attribute[count];
-        for (int i = 0; i < count; i++) {
-            attributes[i] = new Attribute(clazz, memory);
-        }
-        return attributes;
-    }
-
     public int getNameIndex() {
         return nameIndex;
     }

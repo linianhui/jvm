@@ -3,7 +3,7 @@ package jvm.clazz;
 import java.util.HashSet;
 import java.util.Set;
 
-import jvm.clazz.attribute.Attribute;
+import jvm.clazz.attribute.Attributes;
 import jvm.clazz.util.BitUtil;
 
 public class Field {
@@ -11,16 +11,15 @@ public class Field {
     private final Set<Integer> accessFlags;
     private final int nameIndex;
     private final int descriptorIndex;
-    private final int attributesCount;
-    private final Attribute[] attributes;
+    private final Attributes attributes;
 
     public Field(final Clazz clazz, final Memory memory) {
         this.clazz = clazz;
         this.accessFlags = AccessFlag.in(memory.readShortAsInt());
         this.nameIndex = memory.readShortAsInt();
         this.descriptorIndex = memory.readShortAsInt();
-        this.attributesCount = memory.readShortAsInt();
-        this.attributes = Attribute.from(clazz, memory, attributesCount);
+        int attributesCount = memory.readShortAsInt();
+        this.attributes = Attributes.from(clazz, memory, attributesCount);
     }
 
     public Set<Integer> getAccessFlags() {
@@ -31,11 +30,7 @@ public class Field {
         return descriptorIndex;
     }
 
-    public int getAttributesCount() {
-        return attributesCount;
-    }
-
-    public Attribute[] getAttributes() {
+    public Attributes getAttributes() {
         return attributes;
     }
 
