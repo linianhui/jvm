@@ -4,7 +4,7 @@ public class ConstantPackage extends Constant {
     private final int nameIndex;
 
     public ConstantPackage(final Memory memory) {
-        super(ConstantTag.Package);
+        super(Tag.Package);
         nameIndex = memory.readShortAsInt();
     }
 

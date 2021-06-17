@@ -5,7 +5,7 @@ public class ConstantNameAndType extends Constant {
     private final int descriptorIndex;
 
     public ConstantNameAndType(final Memory memory) {
-        super(ConstantTag.MethodRef);
+        super(Tag.MethodRef);
         nameIndex = memory.readShortAsInt();
         descriptorIndex = memory.readShortAsInt();
     }

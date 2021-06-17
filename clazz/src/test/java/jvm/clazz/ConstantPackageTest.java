@@ -9,7 +9,7 @@ class ConstantPackageTest extends AbstractTest {
     void test_ConstantPackage() {
         Memory memory = newMemory(0x00, 0x15);
         ConstantPackage constant = new ConstantPackage(memory);
-        Assertions.assertEquals(ConstantTag.Package, constant.getTag());
+        Assertions.assertEquals(Constant.Tag.Package, constant.getTag());
         Assertions.assertEquals(21, constant.getNameIndex());
         Assertions.assertEquals(2, memory.getPosition());
     }

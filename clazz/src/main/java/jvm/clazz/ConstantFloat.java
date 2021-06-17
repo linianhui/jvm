@@ -4,7 +4,7 @@ public class ConstantFloat extends Constant {
     private final float value;
 
     public ConstantFloat(final Memory memory) {
-        super(ConstantTag.Float);
+        super(Tag.Float);
         value = memory.readFloat();
     }
 

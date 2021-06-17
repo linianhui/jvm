@@ -5,7 +5,7 @@ public class ConstantMethodRef extends Constant {
     private final int nameAndTypeIndex;
 
     public ConstantMethodRef(final Memory memory) {
-        super(ConstantTag.MethodRef);
+        super(Tag.MethodRef);
         classIndex = memory.readShortAsInt();
         nameAndTypeIndex = memory.readShortAsInt();
     }

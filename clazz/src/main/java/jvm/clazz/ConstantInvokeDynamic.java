@@ -5,7 +5,7 @@ public class ConstantInvokeDynamic extends Constant {
     private final int nameAndTypeIndex;
 
     public ConstantInvokeDynamic(final Memory memory) {
-        super(ConstantTag.InvokeDynamic);
+        super(Tag.InvokeDynamic);
         bootstrapMethodAttributeIndex = memory.readShortAsInt();
         nameAndTypeIndex = memory.readShortAsInt();
     }

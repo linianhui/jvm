@@ -4,7 +4,7 @@ public class ConstantClass extends Constant {
     private final int nameIndex;
 
     public ConstantClass(final Memory memory) {
-        super(ConstantTag.Class);
+        super(Tag.Class);
         nameIndex = memory.readShortAsInt();
     }
 

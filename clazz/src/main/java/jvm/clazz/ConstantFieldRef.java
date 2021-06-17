@@ -5,7 +5,7 @@ public class ConstantFieldRef extends Constant {
     private final int nameAndTypeIndex;
 
     public ConstantFieldRef(final Memory memory) {
-        super(ConstantTag.FieldRef);
+        super(Tag.FieldRef);
         classIndex = memory.readShortAsInt();
         nameAndTypeIndex = memory.readShortAsInt();
     }

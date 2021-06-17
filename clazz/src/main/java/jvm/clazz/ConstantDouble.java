@@ -4,7 +4,7 @@ public class ConstantDouble extends Constant {
     private final double value;
 
     public ConstantDouble(final Memory memory) {
-        super(ConstantTag.Double);
+        super(Tag.Double);
         value = memory.readDouble();
     }
 

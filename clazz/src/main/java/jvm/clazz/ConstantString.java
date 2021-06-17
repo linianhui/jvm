@@ -4,7 +4,7 @@ public class ConstantString extends Constant {
     private final int stringIndex;
 
     public ConstantString(final Memory memory) {
-        super(ConstantTag.String);
+        super(Tag.String);
         stringIndex = memory.readShortAsInt();
     }
 

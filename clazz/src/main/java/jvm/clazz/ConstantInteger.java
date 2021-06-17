@@ -4,7 +4,7 @@ public class ConstantInteger extends Constant {
     private final int value;
 
     public ConstantInteger(final Memory memory) {
-        super(ConstantTag.Integer);
+        super(Tag.Integer);
         value = memory.readInt();
     }
 

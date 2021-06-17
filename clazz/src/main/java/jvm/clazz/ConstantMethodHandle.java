@@ -5,7 +5,7 @@ public class ConstantMethodHandle extends Constant {
     private final int referenceIndex;
 
     public ConstantMethodHandle(final Memory memory) {
-        super(ConstantTag.MethodHandle);
+        super(Tag.MethodHandle);
         referenceKind = memory.readByte();
         referenceIndex = memory.readShortAsInt();
     }

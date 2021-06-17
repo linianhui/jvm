@@ -5,7 +5,7 @@ public class ConstantInterfaceMethodRef extends Constant {
     private final int nameAndTypeIndex;
 
     public ConstantInterfaceMethodRef(final Memory memory) {
-        super(ConstantTag.InterfaceMethodRef);
+        super(Tag.InterfaceMethodRef);
         classIndex = memory.readShortAsInt();
         nameAndTypeIndex = memory.readShortAsInt();
     }
