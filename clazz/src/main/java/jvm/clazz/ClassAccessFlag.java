@@ -3,6 +3,8 @@ package jvm.clazz;
 import java.util.HashSet;
 import java.util.Set;
 
+import jvm.clazz.util.BitUtil;
+
 public interface ClassAccessFlag {
     int Public = 0x00_01;
     int Final = 0x00_10;
@@ -14,44 +16,19 @@ public interface ClassAccessFlag {
     int Enum = 0x40_00;
     int Module = 0x80_00;
 
-    static Set<Integer> from(int value) {
-        final Set<Integer> all = new HashSet<>();
-        if ((value & 0x00_01)!=0) {
-            all.add(ClassAccessFlag.Public);
-        }
+    Set<Integer> ALL = new HashSet<>() {{
+        this.add(Public);
+        this.add(Final);
+        this.add(Super);
+        this.add(Interface);
+        this.add(Abstract);
+        this.add(Synthetic);
+        this.add(Annotation);
+        this.add(Enum);
+        this.add(Module);
+    }};
 
-        if ((value & 0x00_10)!=0) {
-            all.add(ClassAccessFlag.Final);
-        }
-
-        if ((value & 0x00_20)!=0) {
-            all.add(ClassAccessFlag.Super);
-        }
-
-        if ((value & 0x02_00)!=0) {
-            all.add(ClassAccessFlag.Interface);
-        }
-
-        if ((value & 0x04_00)!=0) {
-            all.add(ClassAccessFlag.Abstract);
-        }
-
-        if ((value & 0x10_00)!=0) {
-            all.add(ClassAccessFlag.Synthetic);
-        }
-
-        if ((value & 0x20_00)!=0) {
-            all.add(ClassAccessFlag.Annotation);
-        }
-
-        if ((value & 0x40_00)!=0) {
-            all.add(ClassAccessFlag.Enum);
-        }
-
-        if ((value & 0x80_00)!=0) {
-            all.add(ClassAccessFlag.Module);
-        }
-
-        return all;
+    static Set<Integer> in(int value) {
+        return BitUtil.in(ALL, value);
     }
 }

@@ -10,7 +10,7 @@ public class Field {
     private final Attribute[] attributes;
 
     public Field(final Memory memory) {
-        this.accessFlags = FieldAccessFlag.from(memory.readShortAsInt());
+        this.accessFlags = FieldAccessFlag.in(memory.readShortAsInt());
         this.nameIndex = memory.readShortAsInt();
         this.descriptorIndex = memory.readShortAsInt();
         this.attributesCount = memory.readShortAsInt();

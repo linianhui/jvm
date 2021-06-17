@@ -25,7 +25,7 @@ public class ClassFile {
         this.majorVersion = memory.readShortAsInt();
         this.constantPoolCount = memory.readShortAsInt();
         this.constantPool = Constant.from(memory, this.constantPoolCount);
-        this.accessFlags = ClassAccessFlag.from(memory.readShortAsInt());
+        this.accessFlags = ClassAccessFlag.in(memory.readShortAsInt());
         this.thisClass = memory.readShortAsInt();
         this.superClass = memory.readShortAsInt();
         this.interfacesCount = memory.readShortAsInt();
