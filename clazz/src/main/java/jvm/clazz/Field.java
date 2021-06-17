@@ -7,24 +7,26 @@ import jvm.clazz.attribute.Attribute;
 import jvm.clazz.util.BitUtil;
 
 public class Field {
+    private final Clazz clazz;
     private final Set<Integer> accessFlags;
     private final int nameIndex;
     private final int descriptorIndex;
     private final int attributesCount;
     private final Attribute[] attributes;
 
-    public Field(final Memory memory) {
+    public Field(final Clazz clazz, final Memory memory) {
+        this.clazz = clazz;
         this.accessFlags = AccessFlag.in(memory.readShortAsInt());
         this.nameIndex = memory.readShortAsInt();
         this.descriptorIndex = memory.readShortAsInt();
         this.attributesCount = memory.readShortAsInt();
-        this.attributes = Attribute.from(memory, attributesCount);
+        this.attributes = Attribute.from(clazz, memory, attributesCount);
     }
 
-    public static Field[] from(final Memory memory, int count) {
+    public static Field[] from(final Clazz clazz, final Memory memory, int count) {
         final Field[] fields = new Field[count];
         for (int i = 0; i < count; i++) {
-            fields[i] = new Field(memory);
+            fields[i] = new Field(clazz, memory);
         }
         return fields;
     }
@@ -47,6 +49,10 @@ public class Field {
 
     public int getNameIndex() {
         return nameIndex;
+    }
+
+    public Clazz getClazz() {
+        return clazz;
     }
 
     public interface AccessFlag {

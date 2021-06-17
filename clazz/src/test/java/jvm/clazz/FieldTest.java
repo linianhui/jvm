@@ -13,7 +13,7 @@ class FieldTest extends AbstractTest {
             0x19, 0x00, 0x19, 0x00, 0x1A, 0x00, 0x1B, 0x00, 0x01, 0x00, 0x18, 0x00, 0x00, 0x00, 0x02,
             0x00, 0x1C
         );
-        Field[] fields = Field.from(memory, 2);
+        Field[] fields = Field.from(null,memory, 2);
 
         Assertions.assertEquals(2, fields.length);
 

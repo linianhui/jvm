@@ -37,11 +37,11 @@ public class Clazz {
         this.interfacesCount = memory.readShortAsInt();
         this.interfaces = memory.readShortAsInts(this.interfacesCount);
         this.fieldsCount = memory.readShortAsInt();
-        this.fields = Field.from(memory, this.fieldsCount);
+        this.fields = Field.from(this, memory, this.fieldsCount);
         this.methodsCount = memory.readShortAsInt();
-        this.methods = Method.from(memory, this.methodsCount);
+        this.methods = Method.from(this, memory, this.methodsCount);
         this.attributesCount = memory.readShortAsInt();
-        this.attributes = Attribute.from(memory, this.attributesCount);
+        this.attributes = Attribute.from(this, memory, this.attributesCount);
     }
 
     public int getMagic() {

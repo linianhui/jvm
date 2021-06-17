@@ -7,24 +7,26 @@ import jvm.clazz.attribute.Attribute;
 import jvm.clazz.util.BitUtil;
 
 public class Method {
+    private final Clazz clazz;
     private final Set<Integer> accessFlags;
     private final int nameIndex;
     private final int descriptorIndex;
     private final int attributesCount;
     private final Attribute[] attributes;
 
-    public Method(final Memory memory) {
+    public Method(final Clazz clazz, final Memory memory) {
+        this.clazz = clazz;
         this.accessFlags = AccessFlag.in(memory.readShortAsInt());
         this.nameIndex = memory.readShortAsInt();
         this.descriptorIndex = memory.readShortAsInt();
         this.attributesCount = memory.readShortAsInt();
-        this.attributes = Attribute.from(memory, attributesCount);
+        this.attributes = Attribute.from(clazz, memory, attributesCount);
     }
 
-    public static Method[] from(final Memory memory, int count) {
+    public static Method[] from(final Clazz clazz, final Memory memory, int count) {
         final Method[] methods = new Method[count];
         for (int i = 0; i < count; i++) {
-            methods[i] = new Method(memory);
+            methods[i] = new Method(clazz, memory);
         }
         return methods;
     }
@@ -32,6 +34,11 @@ public class Method {
     public Set<Integer> getAccessFlags() {
         return accessFlags;
     }
+
+    public int getNameIndex() {
+        return nameIndex;
+    }
+
 
     public int getDescriptorIndex() {
         return descriptorIndex;
@@ -45,8 +52,8 @@ public class Method {
         return attributes;
     }
 
-    public int getNameIndex() {
-        return nameIndex;
+    public Clazz getClazz() {
+        return clazz;
     }
 
     public interface AccessFlag {
