@@ -1,7 +1,7 @@
 package jvm.clazz.attribute;
 
 import jvm.clazz.Clazz;
-import jvm.clazz.Memory;
+import jvm.clazz.Bytes;
 
 public class Attribute {
 
@@ -14,15 +14,15 @@ public class Attribute {
         final Clazz clazz,
         final int nameIndex,
         final String name,
-        final Memory memory,
+        final Bytes bytes,
         final boolean slice
     ) {
         this.clazz = clazz;
         this.nameIndex = nameIndex;
         this.name = name;
-        this.length = memory.readInt();
+        this.length = bytes.readInt();
         if (slice) {
-            memory.slice(this.length);
+            bytes.slice(this.length);
         }
     }
 

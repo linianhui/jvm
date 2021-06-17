@@ -25,7 +25,7 @@ public abstract class AbstractTest {
         return bytes;
     }
 
-    protected Memory newMemory(int... arg){
-        return new Memory(newByteArray(arg));
+    protected Bytes newBytes(int... arg){
+        return new Bytes(newByteArray(arg));
     }
 }

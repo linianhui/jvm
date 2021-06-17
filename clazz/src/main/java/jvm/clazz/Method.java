@@ -13,13 +13,13 @@ public class Method {
     private final int descriptorIndex;
     private final Attributes attributes;
 
-    public Method(final Clazz clazz, final Memory memory) {
+    public Method(final Clazz clazz, final Bytes bytes) {
         this.clazz = clazz;
-        this.accessFlags = AccessFlag.in(memory.readShortAsInt());
-        this.nameIndex = memory.readShortAsInt();
-        this.descriptorIndex = memory.readShortAsInt();
-        int attributesCount = memory.readShortAsInt();
-        this.attributes = AttributeFactory.from(clazz, memory, attributesCount);
+        this.accessFlags = AccessFlag.in(bytes.readShortAsInt());
+        this.nameIndex = bytes.readShortAsInt();
+        this.descriptorIndex = bytes.readShortAsInt();
+        int attributesCount = bytes.readShortAsInt();
+        this.attributes = AttributeFactory.from(clazz, bytes, attributesCount);
     }
 
     public Set<AccessFlag> getAccessFlags() {

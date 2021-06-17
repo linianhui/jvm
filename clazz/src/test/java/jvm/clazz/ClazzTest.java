@@ -9,7 +9,7 @@ class ClazzTest extends AbstractTest {
     @Test
     void test_ClassFile() {
         byte[] bytes = getResourceBytes("class_file_test.class");
-        final Clazz clazz = new Clazz(new Memory(bytes));
+        final Clazz clazz = new Clazz(new Bytes(bytes));
 
         Assertions.assertEquals(0xCA_FE_BA_BE, clazz.getMagic());
         Assertions.assertEquals(0, clazz.getMinorVersion());

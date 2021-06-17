@@ -6,10 +6,10 @@ public class Fields extends Items<Field> {
         super(clazz, count, items);
     }
 
-    public static Fields from(final Clazz clazz, final Memory memory, int count) {
+    public static Fields from(final Clazz clazz, final Bytes bytes, int count) {
         final Field[] items = new Field[count];
         for (int i = 0; i < count; i++) {
-            items[i] = new Field(clazz, memory);
+            items[i] = new Field(clazz, bytes);
         }
         return new Fields(clazz, count, items);
     }

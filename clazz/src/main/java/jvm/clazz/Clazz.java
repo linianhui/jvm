@@ -21,23 +21,23 @@ public class Clazz {
     private final Methods methods;
     private final Attributes attributes;
 
-    public Clazz(final Memory memory) {
-        this.magic = memory.readInt();
-        this.minorVersion = memory.readShortAsInt();
-        this.majorVersion = memory.readShortAsInt();
-        int constantsCount = memory.readShortAsInt();
-        this.constants = ConstantFactory.from(this, memory, constantsCount);
-        this.accessFlags = AccessFlag.in(memory.readShortAsInt());
-        this.thisClass = memory.readShortAsInt();
-        this.superClass = memory.readShortAsInt();
-        int interfacesCount = memory.readShortAsInt();
-        this.interfaces = Interfaces.from(this, memory, interfacesCount);
-        int fieldsCount = memory.readShortAsInt();
-        this.fields = Fields.from(this, memory, fieldsCount);
-        int methodsCount = memory.readShortAsInt();
-        this.methods = Methods.from(this, memory, methodsCount);
-        int attributesCount = memory.readShortAsInt();
-        this.attributes = AttributeFactory.from(this, memory, attributesCount);
+    public Clazz(final Bytes bytes) {
+        this.magic = bytes.readInt();
+        this.minorVersion = bytes.readShortAsInt();
+        this.majorVersion = bytes.readShortAsInt();
+        int constantsCount = bytes.readShortAsInt();
+        this.constants = ConstantFactory.from(this, bytes, constantsCount);
+        this.accessFlags = AccessFlag.in(bytes.readShortAsInt());
+        this.thisClass = bytes.readShortAsInt();
+        this.superClass = bytes.readShortAsInt();
+        int interfacesCount = bytes.readShortAsInt();
+        this.interfaces = Interfaces.from(this, bytes, interfacesCount);
+        int fieldsCount = bytes.readShortAsInt();
+        this.fields = Fields.from(this, bytes, fieldsCount);
+        int methodsCount = bytes.readShortAsInt();
+        this.methods = Methods.from(this, bytes, methodsCount);
+        int attributesCount = bytes.readShortAsInt();
+        this.attributes = AttributeFactory.from(this, bytes, attributesCount);
     }
 
     public int getMagic() {

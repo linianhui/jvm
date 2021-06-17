@@ -1,16 +1,16 @@
 package jvm.clazz.constant;
 
 import jvm.clazz.Clazz;
-import jvm.clazz.Memory;
+import jvm.clazz.Bytes;
 
 public class MethodHandleConstant extends Constant {
     private final byte referenceKind;
     private final int referenceIndex;
 
-    public MethodHandleConstant(final Clazz clazz, final Memory memory) {
+    public MethodHandleConstant(final Clazz clazz, final Bytes bytes) {
         super(clazz,Tag.MethodHandle);
-        referenceKind = memory.readByte();
-        referenceIndex = memory.readShortAsInt();
+        referenceKind = bytes.readByte();
+        referenceIndex = bytes.readShortAsInt();
     }
 
     public byte getReferenceKind() {

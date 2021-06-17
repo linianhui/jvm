@@ -1,16 +1,16 @@
 package jvm.clazz.constant;
 
 import jvm.clazz.Clazz;
-import jvm.clazz.Memory;
+import jvm.clazz.Bytes;
 
 public class NameAndTypeConstant extends Constant {
     private final int nameIndex;
     private final int descriptorIndex;
 
-    public NameAndTypeConstant(final Clazz clazz, final Memory memory) {
+    public NameAndTypeConstant(final Clazz clazz, final Bytes bytes) {
         super(clazz,Tag.MethodRef);
-        nameIndex = memory.readShortAsInt();
-        descriptorIndex = memory.readShortAsInt();
+        nameIndex = bytes.readShortAsInt();
+        descriptorIndex = bytes.readShortAsInt();
     }
 
     public int getNameIndex() {

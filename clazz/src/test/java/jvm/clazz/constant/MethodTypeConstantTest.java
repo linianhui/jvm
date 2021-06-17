@@ -1,7 +1,7 @@
 package jvm.clazz.constant;
 
 import jvm.clazz.AbstractTest;
-import jvm.clazz.Memory;
+import jvm.clazz.Bytes;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,10 +9,10 @@ class MethodTypeConstantTest extends AbstractTest {
 
     @Test
     void test_ConstantMethodType() {
-        Memory memory = newMemory(0x00, 0x15);
-        MethodTypeConstant constant = new MethodTypeConstant(null,memory);
+        Bytes bytes = newBytes(0x00, 0x15);
+        MethodTypeConstant constant = new MethodTypeConstant(null, bytes);
         Assertions.assertEquals(Constant.Tag.MethodRef, constant.getTag());
         Assertions.assertEquals(21, constant.getDescriptorIndex());
-        Assertions.assertEquals(2, memory.getPosition());
+        Assertions.assertEquals(2, bytes.getPosition());
     }
 }

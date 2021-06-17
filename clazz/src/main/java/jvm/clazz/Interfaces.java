@@ -5,10 +5,10 @@ public class Interfaces extends Items<Integer> {
         super(clazz, count, items);
     }
 
-    public static Interfaces from(final Clazz clazz, final Memory memory, int count) {
+    public static Interfaces from(final Clazz clazz, final Bytes bytes, int count) {
         final Integer[] items = new Integer[count];
         for (int i = 0; i < count; i++) {
-            items[i] = memory.readShortAsInt();
+            items[i] = bytes.readShortAsInt();
         }
         return new Interfaces(clazz, count, items);
     }

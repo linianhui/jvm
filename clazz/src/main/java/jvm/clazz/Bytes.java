@@ -1,16 +1,16 @@
 package jvm.clazz;
 
-public class Memory {
+public class Bytes {
     private final byte[] raw;
     private final int begin;
     private int position;
     private final int length;
 
-    public Memory(final byte[] raw) {
+    public Bytes(final byte[] raw) {
         this(raw, 0, raw.length);
     }
 
-    public Memory(final byte[] raw, int begin, int length) {
+    public Bytes(final byte[] raw, int begin, int length) {
         this.raw = raw;
         this.begin = begin;
         this.position = 0;
@@ -77,9 +77,9 @@ public class Memory {
         return length;
     }
 
-    public Memory slice(int length) {
-        final Memory memory = new Memory(this.raw, this.position, length);
+    public Bytes slice(int length) {
+        final Bytes bytes = new Bytes(this.raw, this.position, length);
         this.position = this.position + length;
-        return memory;
+        return bytes;
     }
 }

@@ -1,14 +1,14 @@
 package jvm.clazz.constant;
 
 import jvm.clazz.Clazz;
-import jvm.clazz.Memory;
+import jvm.clazz.Bytes;
 
 public class LongConstant extends Constant {
     private final long value;
 
-    public LongConstant(final Clazz clazz, final Memory memory) {
+    public LongConstant(final Clazz clazz, final Bytes bytes) {
         super(clazz,Tag.Long);
-        value = memory.readLong();
+        value = bytes.readLong();
     }
 
     public long getValue() {

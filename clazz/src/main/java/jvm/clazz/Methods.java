@@ -6,10 +6,10 @@ public class Methods extends Items<Method> {
         super(clazz, count, items);
     }
 
-    public static Methods from(final Clazz clazz, final Memory memory, int count) {
+    public static Methods from(final Clazz clazz, final Bytes bytes, int count) {
         final Method[] items = new Method[count];
         for (int i = 0; i < count; i++) {
-            items[i] = new Method(clazz, memory);
+            items[i] = new Method(clazz, bytes);
         }
         return new Methods(clazz, count, items);
     }

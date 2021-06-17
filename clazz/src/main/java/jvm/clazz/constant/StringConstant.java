@@ -1,14 +1,14 @@
 package jvm.clazz.constant;
 
 import jvm.clazz.Clazz;
-import jvm.clazz.Memory;
+import jvm.clazz.Bytes;
 
 public class StringConstant extends Constant {
     private final int stringIndex;
 
-    public StringConstant(final Clazz clazz, final Memory memory) {
+    public StringConstant(final Clazz clazz, final Bytes bytes) {
         super(clazz,Tag.String);
-        stringIndex = memory.readShortAsInt();
+        stringIndex = bytes.readShortAsInt();
     }
 
     public int getNameIndex() {

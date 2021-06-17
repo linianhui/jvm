@@ -1,16 +1,16 @@
 package jvm.clazz.constant;
 
 import jvm.clazz.Clazz;
-import jvm.clazz.Memory;
+import jvm.clazz.Bytes;
 
 public class InvokeDynamicConstant extends Constant {
     private final int bootstrapMethodAttributeIndex;
     private final int nameAndTypeIndex;
 
-    public InvokeDynamicConstant(final Clazz clazz, final Memory memory) {
+    public InvokeDynamicConstant(final Clazz clazz, final Bytes bytes) {
         super(clazz,Tag.InvokeDynamic);
-        bootstrapMethodAttributeIndex = memory.readShortAsInt();
-        nameAndTypeIndex = memory.readShortAsInt();
+        bootstrapMethodAttributeIndex = bytes.readShortAsInt();
+        nameAndTypeIndex = bytes.readShortAsInt();
     }
 
     public int getBootstrapMethodAttributeIndex() {
