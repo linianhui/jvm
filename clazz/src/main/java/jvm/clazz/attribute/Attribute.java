@@ -1,4 +1,6 @@
-package jvm.clazz;
+package jvm.clazz.attribute;
+
+import jvm.clazz.Memory;
 
 public class Attribute {
     private final int nameIndex;

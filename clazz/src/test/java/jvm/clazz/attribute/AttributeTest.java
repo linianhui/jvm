@@ -1,5 +1,7 @@
-package jvm.clazz;
+package jvm.clazz.attribute;
 
+import jvm.clazz.AbstractTest;
+import jvm.clazz.Memory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

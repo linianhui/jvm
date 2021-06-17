@@ -3,6 +3,7 @@ package jvm.clazz;
 import java.util.HashSet;
 import java.util.Set;
 
+import jvm.clazz.attribute.Attribute;
 import jvm.clazz.constant.Constant;
 import jvm.clazz.util.BitUtil;
 
