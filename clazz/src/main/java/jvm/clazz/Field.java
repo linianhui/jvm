@@ -15,7 +15,7 @@ public class Field {
 
     public Field(final Clazz clazz, final Bytes bytes) {
         this.clazz = clazz;
-        this.accessFlags = AccessFlag.in(bytes.readShortAsInt());
+        this.accessFlags = AccessFlag.from(bytes.readShortAsInt());
         this.nameIndex = bytes.readShortAsInt();
         this.descriptorIndex = bytes.readShortAsInt();
         int attributesCount = bytes.readShortAsInt();
@@ -59,8 +59,8 @@ public class Field {
             this.raw = raw;
         }
 
-        static Set<AccessFlag> in(int value) {
-            return BitUtil.in(AccessFlag.class, value);
+        static Set<AccessFlag> from(int value) {
+            return BitUtil.from(AccessFlag.class, value);
         }
 
         @Override

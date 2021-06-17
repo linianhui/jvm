@@ -27,7 +27,7 @@ public class Clazz {
         this.majorVersion = bytes.readShortAsInt();
         int constantsCount = bytes.readShortAsInt();
         this.constants = ConstantFactory.from(this, bytes, constantsCount);
-        this.accessFlags = AccessFlag.in(bytes.readShortAsInt());
+        this.accessFlags = AccessFlag.from(bytes.readShortAsInt());
         this.thisClass = bytes.readShortAsInt();
         this.superClass = bytes.readShortAsInt();
         int interfacesCount = bytes.readShortAsInt();
@@ -101,8 +101,8 @@ public class Clazz {
             this.raw = raw;
         }
 
-        static Set<AccessFlag> in(int value) {
-            return BitUtil.in(AccessFlag.class, value);
+        static Set<AccessFlag> from(int value) {
+            return BitUtil.from(AccessFlag.class, value);
         }
 
         @Override
