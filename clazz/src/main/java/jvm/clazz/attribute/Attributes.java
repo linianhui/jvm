@@ -12,7 +12,7 @@ public class Attributes extends Items<Attribute> {
     public static Attributes from(final Clazz clazz, final Memory memory, int count) {
         final Attribute[] items = new Attribute[count];
         for (int i = 0; i < count; i++) {
-            items[i] = new Attribute(clazz, memory);
+            items[i] = Attribute.from(clazz, memory);
         }
         return new Attributes(clazz, count, items);
     }

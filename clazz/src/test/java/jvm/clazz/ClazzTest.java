@@ -35,5 +35,6 @@ class ClazzTest extends AbstractTest {
 
         Assertions.assertEquals(2, clazz.getAttributes().getCount());
         Assertions.assertEquals(58, clazz.getAttributes().get(1).getNameIndex());
+        Assertions.assertEquals("SourceFile", clazz.getAttributes().get(1).getName());
     }
 }
