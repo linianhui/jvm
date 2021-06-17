@@ -29,5 +29,8 @@ class ClassFileTest extends AbstractTest {
 
         Assertions.assertEquals(9, classFile.getFieldsCount());
         Assertions.assertEquals(43,  classFile.getFields()[8].getNameIndex());
+
+        Assertions.assertEquals(4, classFile.getMethodsCount());
+        Assertions.assertEquals(53,  classFile.getMethods()[3].getNameIndex());
     }
 }
