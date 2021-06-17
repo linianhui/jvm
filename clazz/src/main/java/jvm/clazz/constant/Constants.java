@@ -21,4 +21,12 @@ public class Constants extends Items<Constant> {
         }
         return new Constants(clazz, count, items);
     }
+
+    public UTF8Constant getUTF8(int index){
+        return (UTF8Constant)get(index);
+    }
+
+    public String getUTF8String(int index){
+        return getUTF8(index).getValue();
+    }
 }

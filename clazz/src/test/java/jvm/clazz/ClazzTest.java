@@ -1,7 +1,6 @@
 package jvm.clazz;
 
 
-import jvm.clazz.constant.UTF8Constant;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ class ClazzTest extends AbstractTest {
         Assertions.assertEquals(0, clazz.getMinorVersion());
         Assertions.assertEquals(52, clazz.getMajorVersion());
         Assertions.assertEquals(90, clazz.getConstants().getCount());
-        Assertions.assertEquals("(D)V", ((UTF8Constant) clazz.getConstants().get(89)).getValue());
+        Assertions.assertEquals("(D)V", clazz.getConstants().getUTF8String(89));
 
         Assertions.assertEquals(2, clazz.getAccessFlags().size());
         Assertions.assertTrue(clazz.getAccessFlags().contains(Clazz.AccessFlag.Public));
