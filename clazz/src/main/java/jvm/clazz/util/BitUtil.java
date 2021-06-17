@@ -1,16 +1,18 @@
 package jvm.clazz.util;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import jvm.clazz.Bit;
+
 public class BitUtil {
-    public static Set<Integer> in(final Collection<Integer> list, int value) {
-        final Set<Integer> set = new HashSet<>();
-        if (list != null) {
-            for (Integer i : list) {
-                if ((value & i) != 0) {
-                    set.add(i);
+    public static <E extends Enum<E> & Bit> Set<E> in(final Class<E> eClass, int value) {
+        final Set<E> set = new HashSet<>();
+        if (eClass!=null) {
+            E[] items = eClass.getEnumConstants();
+            for (E item : items) {
+                if ((value & item.raw())!=0) {
+                    set.add(item);
                 }
             }
         }

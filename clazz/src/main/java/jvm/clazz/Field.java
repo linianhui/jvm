@@ -1,6 +1,5 @@
 package jvm.clazz;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import jvm.clazz.attribute.AttributeFactory;
@@ -9,7 +8,7 @@ import jvm.clazz.util.BitUtil;
 
 public class Field {
     private final Clazz clazz;
-    private final Set<Integer> accessFlags;
+    private final Set<AccessFlag> accessFlags;
     private final int nameIndex;
     private final int descriptorIndex;
     private final Attributes attributes;
@@ -23,7 +22,7 @@ public class Field {
         this.attributes = AttributeFactory.from(clazz, memory, attributesCount);
     }
 
-    public Set<Integer> getAccessFlags() {
+    public Set<AccessFlag> getAccessFlags() {
         return accessFlags;
     }
 
@@ -43,31 +42,30 @@ public class Field {
         return clazz;
     }
 
-    public interface AccessFlag {
-        int Public = 0x00_01;
-        int Private = 0x00_02;
-        int Protected = 0x00_04;
-        int Static = 0x00_08;
-        int Final = 0x00_10;
-        int Volatile = 0x00_40;
-        int Transient = 0x00_80;
-        int Synthetic = 0x10_00;
-        int Enum = 0x40_00;
+    public enum AccessFlag implements Bit {
+        Public(0x00_01),
+        Private(0x00_02),
+        Protected(0x00_04),
+        Static(0x00_08),
+        Final(0x00_10),
+        Volatile(0x00_40),
+        Transient(0x00_80),
+        Synthetic(0x10_00),
+        Enum(0x40_00);
 
-        Set<Integer> ALL = new HashSet<>() {{
-            this.add(Public);
-            this.add(Private);
-            this.add(Protected);
-            this.add(Static);
-            this.add(Final);
-            this.add(Volatile);
-            this.add(Transient);
-            this.add(Synthetic);
-            this.add(Enum);
-        }};
+        private final int raw;
 
-        static Set<Integer> in(int value) {
-            return BitUtil.in(ALL, value);
+        AccessFlag(int raw) {
+            this.raw = raw;
+        }
+
+        static Set<AccessFlag> in(int value) {
+            return BitUtil.in(AccessFlag.class, value);
+        }
+
+        @Override
+        public int raw() {
+            return raw;
         }
     }
 }

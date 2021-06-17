@@ -1,8 +1,8 @@
 package jvm.clazz.util;
 
-import java.util.List;
 import java.util.Set;
 
+import jvm.clazz.Clazz;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -15,8 +15,8 @@ class BitUtilTest {
 
     @Test
     void test_in_ok() {
-        Set<Integer> set = BitUtil.in(List.of(1, 2, 4, 8), 7);
-        Assertions.assertEquals(3, set.size());
-        Assertions.assertEquals(Set.of(1, 2, 4), set);
+        Set<Clazz.AccessFlag> set = BitUtil.in(Clazz.AccessFlag.class, 1);
+        Assertions.assertEquals(1, set.size());
+        Assertions.assertEquals(Set.of(Clazz.AccessFlag.Public), set);
     }
 }
