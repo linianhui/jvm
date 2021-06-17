@@ -18,8 +18,8 @@ class ClazzTest extends AbstractTest {
         Assertions.assertEquals("(D)V", ((ConstantUtf8) clazz.getConstantPool()[89]).getValue());
 
         Assertions.assertEquals(2, clazz.getAccessFlags().size());
-        Assertions.assertTrue(clazz.getAccessFlags().contains(ClassAccessFlag.Public));
-        Assertions.assertTrue(clazz.getAccessFlags().contains(ClassAccessFlag.Super));
+        Assertions.assertTrue(clazz.getAccessFlags().contains(Clazz.AccessFlag.Public));
+        Assertions.assertTrue(clazz.getAccessFlags().contains(Clazz.AccessFlag.Super));
 
         Assertions.assertEquals(5, clazz.getThisClass());
         Assertions.assertEquals(20, clazz.getSuperClass());
