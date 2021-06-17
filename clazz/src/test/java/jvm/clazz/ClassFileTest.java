@@ -27,5 +27,7 @@ class ClassFileTest extends AbstractTest {
         Assertions.assertEquals(1, classFile.getInterfacesCount());
         Assertions.assertArrayEquals(new int[]{21}, classFile.getInterfaces());
 
+        Assertions.assertEquals(9, classFile.getFieldsCount());
+        Assertions.assertEquals(43,  classFile.getFields()[8].getNameIndex());
     }
 }

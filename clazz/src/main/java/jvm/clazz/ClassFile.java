@@ -13,6 +13,8 @@ public class ClassFile {
     private final int superClass;
     private final int interfacesCount;
     private final int[] interfaces;
+    private final int fieldsCount;
+    private final Field[] fields;
 
 
     public ClassFile(final Memory memory) {
@@ -26,6 +28,8 @@ public class ClassFile {
         this.superClass = memory.readShortAsInt();
         this.interfacesCount = memory.readShortAsInt();
         this.interfaces = memory.readShortAsInts(this.interfacesCount);
+        this.fieldsCount = memory.readShortAsInt();
+        this.fields = Field.from(memory, this.fieldsCount);
     }
 
     public int getMagic() {
@@ -66,5 +70,13 @@ public class ClassFile {
 
     public int[] getInterfaces() {
         return interfaces;
+    }
+
+    public int getFieldsCount() {
+        return fieldsCount;
+    }
+
+    public Field[] getFields() {
+        return fields;
     }
 }
