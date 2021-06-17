@@ -15,8 +15,7 @@ public class Clazz {
     private final Set<Integer> accessFlags;
     private final int thisClass;
     private final int superClass;
-    private final int interfacesCount;
-    private final int[] interfaces;
+    private final Interfaces interfaces;
     private final Fields fields;
     private final Methods methods;
     private final Attributes attributes;
@@ -30,8 +29,8 @@ public class Clazz {
         this.accessFlags = AccessFlag.in(memory.readShortAsInt());
         this.thisClass = memory.readShortAsInt();
         this.superClass = memory.readShortAsInt();
-        this.interfacesCount = memory.readShortAsInt();
-        this.interfaces = memory.readShortAsInts(this.interfacesCount);
+        int interfacesCount = memory.readShortAsInt();
+        this.interfaces = Interfaces.from(this,memory,interfacesCount);
         int fieldsCount = memory.readShortAsInt();
         this.fields = Fields.from(this, memory, fieldsCount);
         int methodsCount = memory.readShortAsInt();
@@ -68,11 +67,7 @@ public class Clazz {
         return superClass;
     }
 
-    public int getInterfacesCount() {
-        return interfacesCount;
-    }
-
-    public int[] getInterfaces() {
+    public Interfaces getInterfaces() {
         return interfaces;
     }
 

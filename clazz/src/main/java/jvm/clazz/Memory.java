@@ -41,14 +41,6 @@ public class Memory {
         return i1 << 8 | i2;
     }
 
-    public int[] readShortAsInts(int count) {
-        final int[] ints = new int[count];
-        for (int i = 0; i < count; i++) {
-            ints[i] = readShortAsInt();
-        }
-        return ints;
-    }
-
     public int readInt() {
         int i1 = readByteAsInt();
         int i2 = readByteAsInt();
