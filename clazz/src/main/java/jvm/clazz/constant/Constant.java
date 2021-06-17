@@ -9,19 +9,7 @@ public abstract class Constant {
         this.tag = tag;
     }
 
-    public static Constant[] from(final Memory memory, int count) {
-        final Constant[] constants = new Constant[count + 1];
-        for (int i = 1; i < count; i++) {
-            byte tag = memory.readByte();
-            constants[i] = from(memory, tag);
-            if (tag == Tag.Double || tag == Tag.Long) {
-                i++;
-            }
-        }
-        return constants;
-    }
-
-    private static Constant from(final Memory memory, byte tag) {
+    public static Constant from(final Memory memory, byte tag) {
 
         switch (tag) {
             case Tag.Utf8:
@@ -84,5 +72,9 @@ public abstract class Constant {
         byte InvokeDynamic = 18;
         byte Module = 19;
         byte Package = 20;
+
+        static boolean as2Constant(byte tag) {
+            return tag==Double || tag==Long;
+        }
     }
 }

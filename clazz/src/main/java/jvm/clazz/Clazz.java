@@ -4,15 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 import jvm.clazz.attribute.Attribute;
-import jvm.clazz.constant.Constant;
+import jvm.clazz.constant.Constants;
 import jvm.clazz.util.BitUtil;
 
 public class Clazz {
     private final int magic;
     private final int minorVersion;
     private final int majorVersion;
-    private final int constantPoolCount;
-    private final Constant[] constantPool;
+    private final Constants constants;
     private final Set<Integer> accessFlags;
     private final int thisClass;
     private final int superClass;
@@ -29,8 +28,8 @@ public class Clazz {
         this.magic = memory.readInt();
         this.minorVersion = memory.readShortAsInt();
         this.majorVersion = memory.readShortAsInt();
-        this.constantPoolCount = memory.readShortAsInt();
-        this.constantPool = Constant.from(memory, this.constantPoolCount);
+        int constantsCount = memory.readShortAsInt();
+        this.constants = Constants.from(memory, constantsCount);
         this.accessFlags = AccessFlag.in(memory.readShortAsInt());
         this.thisClass = memory.readShortAsInt();
         this.superClass = memory.readShortAsInt();
@@ -56,12 +55,8 @@ public class Clazz {
         return majorVersion;
     }
 
-    public int getConstantPoolCount() {
-        return constantPoolCount;
-    }
-
-    public Constant[] getConstantPool() {
-        return constantPool;
+    public Constants getConstants() {
+        return constants;
     }
 
     public Set<Integer> getAccessFlags() {
