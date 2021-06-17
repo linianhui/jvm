@@ -40,6 +40,8 @@ public class Attribute {
                 return new ConstantValueAttribute(clazz, nameIndex, name, memory);
             case Name.Signature:
                 return new SignatureAttribute(clazz, nameIndex, name, memory);
+            case Name.SourceFile:
+                return new SourceFileAttribute(clazz, nameIndex, name, memory);
             default:
                 return new Attribute(clazz, nameIndex, name, memory, true);
         }
@@ -75,5 +77,6 @@ public class Attribute {
     public interface Name {
         String ConstantValue = "ConstantValue";
         String Signature = "Signature";
+        String SourceFile = "SourceFile";
     }
 }
