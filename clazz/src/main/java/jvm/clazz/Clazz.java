@@ -5,6 +5,7 @@ import java.util.Set;
 
 import jvm.clazz.attribute.AttributeFactory;
 import jvm.clazz.attribute.Attributes;
+import jvm.clazz.constant.ConstantFactory;
 import jvm.clazz.constant.Constants;
 import jvm.clazz.util.BitUtil;
 
@@ -26,7 +27,7 @@ public class Clazz {
         this.minorVersion = memory.readShortAsInt();
         this.majorVersion = memory.readShortAsInt();
         int constantsCount = memory.readShortAsInt();
-        this.constants = Constants.from(this, memory, constantsCount);
+        this.constants = ConstantFactory.from(this, memory, constantsCount);
         this.accessFlags = AccessFlag.in(memory.readShortAsInt());
         this.thisClass = memory.readShortAsInt();
         this.superClass = memory.readShortAsInt();

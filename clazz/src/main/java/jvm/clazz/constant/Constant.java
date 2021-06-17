@@ -1,7 +1,6 @@
 package jvm.clazz.constant;
 
 import jvm.clazz.Clazz;
-import jvm.clazz.Memory;
 
 public abstract class Constant {
     private final Clazz clazz;
@@ -10,47 +9,6 @@ public abstract class Constant {
     protected Constant(final Clazz clazz, byte tag) {
         this.clazz = clazz;
         this.tag = tag;
-    }
-
-    public static Constant from(final Clazz clazz, final Memory memory, byte tag) {
-
-        switch (tag) {
-            case Tag.Utf8:
-                return new UTF8Constant(clazz, memory);
-            case Tag.Integer:
-                return new IntegerConstant(clazz, memory);
-            case Tag.Float:
-                return new FloatConstant(clazz, memory);
-            case Tag.Long:
-                return new LongConstant(clazz, memory);
-            case Tag.Double:
-                return new DoubleConstant(clazz, memory);
-            case Tag.Class:
-                return new ClassConstant(clazz, memory);
-            case Tag.String:
-                return new StringConstant(clazz, memory);
-            case Tag.FieldRef:
-                return new FieldRefConstant(clazz, memory);
-            case Tag.MethodRef:
-                return new MethodRefConstant(clazz, memory);
-            case Tag.InterfaceMethodRef:
-                return new InterfaceMethodRefConstant(clazz, memory);
-            case Tag.NameAndType:
-                return new NameAndTypeConstant(clazz, memory);
-            case Tag.MethodHandle:
-                return new MethodHandleConstant(clazz, memory);
-            case Tag.MethodType:
-                return new MethodTypeConstant(clazz, memory);
-            case Tag.Dynamic:
-                return new DynamicConstant(clazz, memory);
-            case Tag.InvokeDynamic:
-                return new InvokeDynamicConstant(clazz, memory);
-            case Tag.Module:
-                return new ModuleConstant(clazz, memory);
-            case Tag.Package:
-                return new PackageConstant(clazz, memory);
-        }
-        throw new RuntimeException("unsupported tag " + tag);
     }
 
     public Clazz getClazz() {
