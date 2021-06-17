@@ -38,6 +38,8 @@ public class Attribute {
         switch (name) {
             case Name.ConstantValue:
                 return new ConstantValueAttribute(clazz, nameIndex, name, memory);
+            case Name.Signature:
+                return new SignatureAttribute(clazz, nameIndex, name, memory);
             default:
                 return new Attribute(clazz, nameIndex, name, memory, true);
         }
