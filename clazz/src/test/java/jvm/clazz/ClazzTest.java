@@ -16,7 +16,7 @@ class ClazzTest extends AbstractTest {
         Assertions.assertEquals(0, clazz.getMinorVersion());
         Assertions.assertEquals(52, clazz.getMajorVersion());
         Assertions.assertEquals(90, clazz.getConstants().getCount());
-        Assertions.assertEquals("(D)V", ((UTF8Constant) clazz.getConstants().getItems()[89]).getValue());
+        Assertions.assertEquals("(D)V", ((UTF8Constant) clazz.getConstants().get(89)).getValue());
 
         Assertions.assertEquals(2, clazz.getAccessFlags().size());
         Assertions.assertTrue(clazz.getAccessFlags().contains(Clazz.AccessFlag.Public));
@@ -26,15 +26,15 @@ class ClazzTest extends AbstractTest {
         Assertions.assertEquals(20, clazz.getSuperClass());
 
         Assertions.assertEquals(1, clazz.getInterfaces().getCount());
-        Assertions.assertEquals(21, clazz.getInterfaces().getItems()[0]);
+        Assertions.assertEquals(21, clazz.getInterfaces().get(0));
 
         Assertions.assertEquals(9, clazz.getFields().getCount());
-        Assertions.assertEquals(43, clazz.getFields().getItems()[8].getNameIndex());
+        Assertions.assertEquals(43, clazz.getFields().get(8).getNameIndex());
 
         Assertions.assertEquals(4, clazz.getMethods().getCount());
-        Assertions.assertEquals(53, clazz.getMethods().getItems()[3].getNameIndex());
+        Assertions.assertEquals(53, clazz.getMethods().get(3).getNameIndex());
 
         Assertions.assertEquals(2, clazz.getAttributes().getCount());
-        Assertions.assertEquals(58, clazz.getAttributes().getItems()[1].getNameIndex());
+        Assertions.assertEquals(58, clazz.getAttributes().get(1).getNameIndex());
     }
 }

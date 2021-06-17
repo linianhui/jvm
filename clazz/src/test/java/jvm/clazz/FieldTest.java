@@ -15,29 +15,27 @@ class FieldTest extends AbstractTest {
         );
         Fields fields = Fields.from(null,memory, 2);
 
-        Assertions.assertEquals(2, fields.getItems().length);
+        Assertions.assertEquals(2, fields.getCount());
 
-        Assertions.assertEquals(3, fields.getItems()[0].getAccessFlags().size());
-        Assertions.assertTrue(fields.getItems()[0].getAccessFlags().contains(Field.AccessFlag.Public));
-        Assertions.assertTrue(fields.getItems()[0].getAccessFlags().contains(Field.AccessFlag.Static));
-        Assertions.assertTrue(fields.getItems()[0].getAccessFlags().contains(Field.AccessFlag.Final));
-        Assertions.assertEquals(22, fields.getItems()[0].getNameIndex());
-        Assertions.assertEquals(23, fields.getItems()[0].getDescriptorIndex());
-        Assertions.assertEquals(1, fields.getItems()[0].getAttributes().getCount());
-        Assertions.assertEquals(1, fields.getItems()[0].getAttributes().getItems().length);
-        Assertions.assertEquals(24, fields.getItems()[0].getAttributes().getItems()[0].getNameIndex());
-        Assertions.assertEquals(2, fields.getItems()[0].getAttributes().getItems()[0].getLength());
+        Assertions.assertEquals(3, fields.get(0).getAccessFlags().size());
+        Assertions.assertTrue(fields.get(0).getAccessFlags().contains(Field.AccessFlag.Public));
+        Assertions.assertTrue(fields.get(0).getAccessFlags().contains(Field.AccessFlag.Static));
+        Assertions.assertTrue(fields.get(0).getAccessFlags().contains(Field.AccessFlag.Final));
+        Assertions.assertEquals(22, fields.get(0).getNameIndex());
+        Assertions.assertEquals(23, fields.get(0).getDescriptorIndex());
+        Assertions.assertEquals(1, fields.get(0).getAttributes().getCount());
+        Assertions.assertEquals(24, fields.get(0).getAttributes().get(0).getNameIndex());
+        Assertions.assertEquals(2, fields.get(0).getAttributes().get(0).getLength());
 
-        Assertions.assertEquals(3, fields.getItems()[1].getAccessFlags().size());
-        Assertions.assertTrue(fields.getItems()[1].getAccessFlags().contains(Field.AccessFlag.Public));
-        Assertions.assertTrue(fields.getItems()[1].getAccessFlags().contains(Field.AccessFlag.Static));
-        Assertions.assertTrue(fields.getItems()[1].getAccessFlags().contains(Field.AccessFlag.Final));
-        Assertions.assertEquals(26, fields.getItems()[1].getNameIndex());
-        Assertions.assertEquals(27, fields.getItems()[1].getDescriptorIndex());
-        Assertions.assertEquals(1, fields.getItems()[1].getAttributes().getCount());
-        Assertions.assertEquals(1, fields.getItems()[1].getAttributes().getItems().length);
-        Assertions.assertEquals(24, fields.getItems()[1].getAttributes().getItems()[0].getNameIndex());
-        Assertions.assertEquals(2, fields.getItems()[1].getAttributes().getItems()[0].getLength());
+        Assertions.assertEquals(3, fields.get(1).getAccessFlags().size());
+        Assertions.assertTrue(fields.get(1).getAccessFlags().contains(Field.AccessFlag.Public));
+        Assertions.assertTrue(fields.get(1).getAccessFlags().contains(Field.AccessFlag.Static));
+        Assertions.assertTrue(fields.get(1).getAccessFlags().contains(Field.AccessFlag.Final));
+        Assertions.assertEquals(26, fields.get(1).getNameIndex());
+        Assertions.assertEquals(27, fields.get(1).getDescriptorIndex());
+        Assertions.assertEquals(1, fields.get(1).getAttributes().getCount());
+        Assertions.assertEquals(24, fields.get(1).getAttributes().get(0).getNameIndex());
+        Assertions.assertEquals(2, fields.get(1).getAttributes().get(0).getLength());
 
     }
 }

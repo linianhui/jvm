@@ -19,7 +19,7 @@ public class Items<T> {
         return count;
     }
 
-    public T[] getItems() {
-        return items;
+    public T get(int index) {
+        return items[index];
     }
 }

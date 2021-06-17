@@ -16,10 +16,10 @@ class AttributeTest extends AbstractTest {
 
         Attributes attributes = Attributes.from(null, memory, 2);
 
-        Assertions.assertEquals(2, attributes.getItems().length);
-        Assertions.assertEquals(56, attributes.getItems()[0].getNameIndex());
-        Assertions.assertEquals(2, attributes.getItems()[0].getLength());
-        Assertions.assertEquals(58, attributes.getItems()[1].getNameIndex());
-        Assertions.assertEquals(2, attributes.getItems()[1].getLength());
+        Assertions.assertEquals(2, attributes.getCount());
+        Assertions.assertEquals(56, attributes.get(0).getNameIndex());
+        Assertions.assertEquals(2, attributes.get(0).getLength());
+        Assertions.assertEquals(58, attributes.get(1).getNameIndex());
+        Assertions.assertEquals(2, attributes.get(1).getLength());
     }
 }
