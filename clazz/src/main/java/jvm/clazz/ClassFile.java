@@ -17,7 +17,8 @@ public class ClassFile {
     private final Field[] fields;
     private final int methodsCount;
     private final Method[] methods;
-
+    private final int attributesCount;
+    private final Attribute[] attributes;
 
     public ClassFile(final Memory memory) {
         this.magic = memory.readInt();
@@ -34,6 +35,8 @@ public class ClassFile {
         this.fields = Field.from(memory, this.fieldsCount);
         this.methodsCount = memory.readShortAsInt();
         this.methods = Method.from(memory, this.methodsCount);
+        this.attributesCount = memory.readShortAsInt();
+        this.attributes = Attribute.from(memory, this.attributesCount);
     }
 
     public int getMagic() {
@@ -90,5 +93,13 @@ public class ClassFile {
 
     public Method[] getMethods() {
         return methods;
+    }
+
+    public int getAttributesCount() {
+        return attributesCount;
+    }
+
+    public Attribute[] getAttributes() {
+        return attributes;
     }
 }
