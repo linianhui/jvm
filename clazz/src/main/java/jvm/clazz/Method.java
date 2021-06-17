@@ -3,6 +3,7 @@ package jvm.clazz;
 import java.util.HashSet;
 import java.util.Set;
 
+import jvm.clazz.attribute.AttributeFactory;
 import jvm.clazz.attribute.Attributes;
 import jvm.clazz.util.BitUtil;
 
@@ -19,7 +20,7 @@ public class Method {
         this.nameIndex = memory.readShortAsInt();
         this.descriptorIndex = memory.readShortAsInt();
         int attributesCount = memory.readShortAsInt();
-        this.attributes = Attributes.from(clazz, memory, attributesCount);
+        this.attributes = AttributeFactory.from(clazz, memory, attributesCount);
     }
 
     public Set<Integer> getAccessFlags() {

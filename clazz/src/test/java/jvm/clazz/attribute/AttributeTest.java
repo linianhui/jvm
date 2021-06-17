@@ -14,7 +14,7 @@ class AttributeTest extends AbstractTest {
             0x00, 0x3A, 0x00, 0x00, 0x00, 0x02, 0x00, 0x3B
         );
 
-        Attributes attributes = Attributes.from(null, memory, 2);
+        Attributes attributes = AttributeFactory.from(null, memory, 2);
 
         Assertions.assertEquals(2, attributes.getCount());
         Assertions.assertEquals(56, attributes.get(0).getNameIndex());
