@@ -25,39 +25,39 @@ public abstract class Constant {
 
         switch (tag) {
             case Tag.Utf8:
-                return new ConstantUtf8(memory);
+                return new UTF8Constant(memory);
             case Tag.Integer:
-                return new ConstantInteger(memory);
+                return new IntegerConstant(memory);
             case Tag.Float:
-                return new ConstantFloat(memory);
+                return new FloatConstant(memory);
             case Tag.Long:
-                return new ConstantLong(memory);
+                return new LongConstant(memory);
             case Tag.Double:
-                return new ConstantDouble(memory);
+                return new DoubleConstant(memory);
             case Tag.Class:
-                return new ConstantClass(memory);
+                return new ClassConstant(memory);
             case Tag.String:
-                return new ConstantString(memory);
+                return new StringConstant(memory);
             case Tag.FieldRef:
-                return new ConstantFieldRef(memory);
+                return new FieldRefConstant(memory);
             case Tag.MethodRef:
-                return new ConstantMethodRef(memory);
+                return new MethodRefConstant(memory);
             case Tag.InterfaceMethodRef:
-                return new ConstantInterfaceMethodRef(memory);
+                return new InterfaceMethodRefConstant(memory);
             case Tag.NameAndType:
-                return new ConstantNameAndType(memory);
+                return new NameAndTypeConstant(memory);
             case Tag.MethodHandle:
-                return new ConstantMethodHandle(memory);
+                return new MethodHandleConstant(memory);
             case Tag.MethodType:
-                return new ConstantMethodType(memory);
+                return new MethodTypeConstant(memory);
             case Tag.Dynamic:
-                return new ConstantDynamic(memory);
+                return new DynamicConstant(memory);
             case Tag.InvokeDynamic:
-                return new ConstantInvokeDynamic(memory);
+                return new InvokeDynamicConstant(memory);
             case Tag.Module:
-                return new ConstantModule(memory);
+                return new ModuleConstant(memory);
             case Tag.Package:
-                return new ConstantPackage(memory);
+                return new PackageConstant(memory);
         }
         throw new RuntimeException("unsupported tag " + tag);
     }
