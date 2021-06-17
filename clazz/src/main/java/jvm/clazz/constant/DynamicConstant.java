@@ -1,13 +1,14 @@
 package jvm.clazz.constant;
 
+import jvm.clazz.Clazz;
 import jvm.clazz.Memory;
 
 public class DynamicConstant extends Constant {
     private final int bootstrapMethodAttributeIndex;
     private final int nameAndTypeIndex;
 
-    public DynamicConstant(final Memory memory) {
-        super(Tag.Dynamic);
+    public DynamicConstant(final Clazz clazz, final Memory memory) {
+        super(clazz,Tag.Dynamic);
         bootstrapMethodAttributeIndex = memory.readShortAsInt();
         nameAndTypeIndex = memory.readShortAsInt();
     }

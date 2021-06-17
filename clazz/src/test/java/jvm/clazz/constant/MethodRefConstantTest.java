@@ -10,7 +10,7 @@ class MethodRefConstantTest extends AbstractTest {
     @Test
     void test_ConstantMethodRef() {
         Memory memory = newMemory(0x00, 0x10, 0x00, 0x11);
-        MethodRefConstant constant = new MethodRefConstant(memory);
+        MethodRefConstant constant = new MethodRefConstant(null,memory);
         Assertions.assertEquals(Constant.Tag.MethodRef, constant.getTag());
         Assertions.assertEquals(16, constant.getClassIndex());
         Assertions.assertEquals(17, constant.getNameAndTypeIndex());

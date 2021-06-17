@@ -1,33 +1,24 @@
 package jvm.clazz.constant;
 
+import jvm.clazz.Clazz;
+import jvm.clazz.Items;
 import jvm.clazz.Memory;
 
-public class Constants {
-    private final int count;
-    private final Constant[] items;
+public class Constants extends Items<Constant> {
 
-    public Constants(int count, Constant[] items) {
-        this.count = count;
-        this.items = items;
+    public Constants(final Clazz clazz, int count, Constant[] items) {
+        super(clazz, count, items);
     }
 
-    public static Constants from(final Memory memory, int count) {
+    public static Constants from(final Clazz clazz, final Memory memory, int count) {
         final Constant[] items = new Constant[count + 1];
         for (int i = 1; i < count; i++) {
             byte tag = memory.readByte();
-            items[i] = Constant.from(memory, tag);
+            items[i] = Constant.from(clazz, memory, tag);
             if (Constant.Tag.as2Constant(tag)) {
                 i++;
             }
         }
-        return new Constants(count, items);
-    }
-
-    public Constant[] getItems() {
-        return items;
-    }
-
-    public int getCount() {
-        return count;
+        return new Constants(clazz, count, items);
     }
 }

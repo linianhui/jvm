@@ -10,7 +10,7 @@ class UTF8ConstantTest extends AbstractTest {
     @Test
     void test_ConstantUtf8() {
         Memory memory = newMemory(0x00, 0x06, 0x3C, 0x69, 0x6E, 0x69, 0x74, 0x3E);
-        UTF8Constant constant = new UTF8Constant(memory);
+        UTF8Constant constant = new UTF8Constant(null,memory);
         Assertions.assertEquals(Constant.Tag.Utf8, constant.getTag());
         Assertions.assertEquals("<init>", constant.getValue());
         Assertions.assertEquals(8, memory.getPosition());

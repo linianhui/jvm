@@ -10,7 +10,7 @@ class InterfaceMethodRefConstantTest extends AbstractTest {
     @Test
     void test_ConstantInterfaceMethodRef() {
         Memory memory = newMemory(0x00, 0x10, 0x00, 0x11);
-        InterfaceMethodRefConstant constant = new InterfaceMethodRefConstant(memory);
+        InterfaceMethodRefConstant constant = new InterfaceMethodRefConstant(null,memory);
         Assertions.assertEquals(Constant.Tag.InterfaceMethodRef, constant.getTag());
         Assertions.assertEquals(16, constant.getClassIndex());
         Assertions.assertEquals(17, constant.getNameAndTypeIndex());

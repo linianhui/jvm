@@ -10,7 +10,7 @@ class StringConstantTest extends AbstractTest {
     @Test
     void test_ConstantString() {
         Memory memory = newMemory(0x00, 0x15);
-        StringConstant constant = new StringConstant(memory);
+        StringConstant constant = new StringConstant(null,memory);
         Assertions.assertEquals(Constant.Tag.String, constant.getTag());
         Assertions.assertEquals(21, constant.getNameIndex());
         Assertions.assertEquals(2, memory.getPosition());

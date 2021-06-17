@@ -10,7 +10,7 @@ class IntegerConstantTest extends AbstractTest {
     @Test
     void test_ConstantInteger() {
         Memory memory = newMemory(0x12, 0x34, 0x56, 0x78);
-        IntegerConstant constant = new IntegerConstant(memory);
+        IntegerConstant constant = new IntegerConstant(null,memory);
         Assertions.assertEquals(Constant.Tag.Integer, constant.getTag());
         Assertions.assertEquals(0x12_34_56_78, constant.getValue());
         Assertions.assertEquals(4, memory.getPosition());

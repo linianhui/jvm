@@ -25,12 +25,12 @@ public class Clazz {
         this.minorVersion = memory.readShortAsInt();
         this.majorVersion = memory.readShortAsInt();
         int constantsCount = memory.readShortAsInt();
-        this.constants = Constants.from(memory, constantsCount);
+        this.constants = Constants.from(this, memory, constantsCount);
         this.accessFlags = AccessFlag.in(memory.readShortAsInt());
         this.thisClass = memory.readShortAsInt();
         this.superClass = memory.readShortAsInt();
         int interfacesCount = memory.readShortAsInt();
-        this.interfaces = Interfaces.from(this,memory,interfacesCount);
+        this.interfaces = Interfaces.from(this, memory, interfacesCount);
         int fieldsCount = memory.readShortAsInt();
         this.fields = Fields.from(this, memory, fieldsCount);
         int methodsCount = memory.readShortAsInt();

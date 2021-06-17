@@ -10,7 +10,7 @@ class MethodTypeConstantTest extends AbstractTest {
     @Test
     void test_ConstantMethodType() {
         Memory memory = newMemory(0x00, 0x15);
-        MethodTypeConstant constant = new MethodTypeConstant(memory);
+        MethodTypeConstant constant = new MethodTypeConstant(null,memory);
         Assertions.assertEquals(Constant.Tag.MethodRef, constant.getTag());
         Assertions.assertEquals(21, constant.getDescriptorIndex());
         Assertions.assertEquals(2, memory.getPosition());

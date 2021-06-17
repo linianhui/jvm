@@ -1,13 +1,14 @@
 package jvm.clazz.constant;
 
+import jvm.clazz.Clazz;
 import jvm.clazz.Memory;
 
 public class UTF8Constant extends Constant {
     private final int length;
     private final String value;
 
-    public UTF8Constant(Memory memory) {
-        super(Tag.Utf8);
+    public UTF8Constant(final Clazz clazz, Memory memory) {
+        super(clazz,Tag.Utf8);
         this.length = memory.readShortAsInt();
         this.value = fromModifiedUtf8(memory.slice(this.length));
     }

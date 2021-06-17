@@ -10,7 +10,7 @@ class ClassConstantTest extends AbstractTest {
     @Test
     void test_ConstantClass() {
         Memory memory = newMemory(0x00, 0x15);
-        ClassConstant constant = new ClassConstant(memory);
+        ClassConstant constant = new ClassConstant(null,memory);
         Assertions.assertEquals(Constant.Tag.Class, constant.getTag());
         Assertions.assertEquals(21, constant.getNameIndex());
         Assertions.assertEquals(2, memory.getPosition());

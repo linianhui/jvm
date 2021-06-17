@@ -10,7 +10,7 @@ class DoubleConstantTest extends AbstractTest {
     @Test
     void test_ConstantDouble() {
         Memory memory = newMemory(0x40, 0x09, 0x21, 0xFB, 0x54, 0x44, 0x2D, 0x18);
-        DoubleConstant constant = new DoubleConstant(memory);
+        DoubleConstant constant = new DoubleConstant(null,memory);
         Assertions.assertEquals(Constant.Tag.Double, constant.getTag());
         Assertions.assertEquals(3.1415_9265_3589_7932_3846D, constant.getValue());
         Assertions.assertEquals(8, memory.getPosition());

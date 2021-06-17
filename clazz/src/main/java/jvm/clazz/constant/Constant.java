@@ -1,53 +1,60 @@
 package jvm.clazz.constant;
 
+import jvm.clazz.Clazz;
 import jvm.clazz.Memory;
 
 public abstract class Constant {
+    private final Clazz clazz;
     private final byte tag;
 
-    protected Constant(byte tag) {
+    protected Constant(final Clazz clazz, byte tag) {
+        this.clazz = clazz;
         this.tag = tag;
     }
 
-    public static Constant from(final Memory memory, byte tag) {
+    public static Constant from(final Clazz clazz, final Memory memory, byte tag) {
 
         switch (tag) {
             case Tag.Utf8:
-                return new UTF8Constant(memory);
+                return new UTF8Constant(clazz, memory);
             case Tag.Integer:
-                return new IntegerConstant(memory);
+                return new IntegerConstant(clazz, memory);
             case Tag.Float:
-                return new FloatConstant(memory);
+                return new FloatConstant(clazz, memory);
             case Tag.Long:
-                return new LongConstant(memory);
+                return new LongConstant(clazz, memory);
             case Tag.Double:
-                return new DoubleConstant(memory);
+                return new DoubleConstant(clazz, memory);
             case Tag.Class:
-                return new ClassConstant(memory);
+                return new ClassConstant(clazz, memory);
             case Tag.String:
-                return new StringConstant(memory);
+                return new StringConstant(clazz, memory);
             case Tag.FieldRef:
-                return new FieldRefConstant(memory);
+                return new FieldRefConstant(clazz, memory);
             case Tag.MethodRef:
-                return new MethodRefConstant(memory);
+                return new MethodRefConstant(clazz, memory);
             case Tag.InterfaceMethodRef:
-                return new InterfaceMethodRefConstant(memory);
+                return new InterfaceMethodRefConstant(clazz, memory);
             case Tag.NameAndType:
-                return new NameAndTypeConstant(memory);
+                return new NameAndTypeConstant(clazz, memory);
             case Tag.MethodHandle:
-                return new MethodHandleConstant(memory);
+                return new MethodHandleConstant(clazz, memory);
             case Tag.MethodType:
-                return new MethodTypeConstant(memory);
+                return new MethodTypeConstant(clazz, memory);
             case Tag.Dynamic:
-                return new DynamicConstant(memory);
+                return new DynamicConstant(clazz, memory);
             case Tag.InvokeDynamic:
-                return new InvokeDynamicConstant(memory);
+                return new InvokeDynamicConstant(clazz, memory);
             case Tag.Module:
-                return new ModuleConstant(memory);
+                return new ModuleConstant(clazz, memory);
             case Tag.Package:
-                return new PackageConstant(memory);
+                return new PackageConstant(clazz, memory);
         }
         throw new RuntimeException("unsupported tag " + tag);
+    }
+
+    public Clazz getClazz() {
+        return clazz;
     }
 
     public byte getTag() {

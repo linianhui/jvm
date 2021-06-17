@@ -10,7 +10,7 @@ class MethodHandleConstantTest extends AbstractTest {
     @Test
     void test_ConstantMethodHandle() {
         Memory memory = newMemory(0x02, 0x00, 0x13);
-        MethodHandleConstant constant = new MethodHandleConstant(memory);
+        MethodHandleConstant constant = new MethodHandleConstant(null,memory);
         Assertions.assertEquals(Constant.Tag.MethodHandle, constant.getTag());
         Assertions.assertEquals(MethodHandleConstant.ReferenceKind.GetStatic, constant.getReferenceKind());
         Assertions.assertEquals(19, constant.getReferenceIndex());

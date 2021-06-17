@@ -1,13 +1,14 @@
 package jvm.clazz.constant;
 
+import jvm.clazz.Clazz;
 import jvm.clazz.Memory;
 
 public class FieldRefConstant extends Constant {
     private final int classIndex;
     private final int nameAndTypeIndex;
 
-    public FieldRefConstant(final Memory memory) {
-        super(Tag.FieldRef);
+    public FieldRefConstant(final Clazz clazz, final Memory memory) {
+        super(clazz,Tag.FieldRef);
         classIndex = memory.readShortAsInt();
         nameAndTypeIndex = memory.readShortAsInt();
     }
