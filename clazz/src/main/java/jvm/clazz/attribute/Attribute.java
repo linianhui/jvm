@@ -11,22 +11,40 @@ public class Attribute {
     private final int length;
     private final Memory memory;
 
-    protected Attribute(final Clazz clazz, final int nameIndex, String name, final Memory memory) {
+    protected Attribute(
+        final Clazz clazz,
+        final int nameIndex,
+        final String name,
+        final Memory memory,
+        final boolean slice
+    ) {
         this.clazz = clazz;
         this.nameIndex = nameIndex;
         this.name = name;
         this.length = memory.readInt();
-        this.memory = memory.slice(this.length);
+        if (slice) {
+            this.memory = memory.slice(this.length);
+        } else {
+            this.memory = memory;
+        }
     }
 
     public static Attribute from(final Clazz clazz, final Memory memory) {
         int nameIndex = memory.readShortAsInt();
         String name = findName(clazz, nameIndex);
-        return new Attribute(clazz, nameIndex, name, memory);
+        if (name == null) {
+            return new Attribute(clazz, nameIndex, name, memory, true);
+        }
+        switch (name) {
+            case Name.ConstantValue:
+                return new ConstantValueAttribute(clazz, nameIndex, name, memory);
+            default:
+                return new Attribute(clazz, nameIndex, name, memory, true);
+        }
     }
 
     public static String findName(final Clazz clazz, int nameIndex) {
-        if (clazz==null) {
+        if (clazz == null) {
             return null;
         }
         return clazz.getConstants().getUTF8String(nameIndex);
@@ -46,5 +64,14 @@ public class Attribute {
 
     public Clazz getClazz() {
         return clazz;
+    }
+
+    protected Memory getMemory() {
+        return memory;
+    }
+
+    public interface Name {
+        String ConstantValue = "ConstantValue";
+        String Signature = "Signature";
     }
 }
