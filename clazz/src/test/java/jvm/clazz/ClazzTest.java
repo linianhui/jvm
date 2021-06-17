@@ -28,8 +28,8 @@ class ClazzTest extends AbstractTest {
         Assertions.assertEquals(1, clazz.getInterfacesCount());
         Assertions.assertArrayEquals(new int[]{21}, clazz.getInterfaces());
 
-        Assertions.assertEquals(9, clazz.getFieldsCount());
-        Assertions.assertEquals(43, clazz.getFields()[8].getNameIndex());
+        Assertions.assertEquals(9, clazz.getFields().getCount());
+        Assertions.assertEquals(43, clazz.getFields().getItems()[8].getNameIndex());
 
         Assertions.assertEquals(4, clazz.getMethodsCount());
         Assertions.assertEquals(53, clazz.getMethods()[3].getNameIndex());

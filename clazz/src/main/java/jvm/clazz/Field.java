@@ -23,14 +23,6 @@ public class Field {
         this.attributes = Attribute.from(clazz, memory, attributesCount);
     }
 
-    public static Field[] from(final Clazz clazz, final Memory memory, int count) {
-        final Field[] fields = new Field[count];
-        for (int i = 0; i < count; i++) {
-            fields[i] = new Field(clazz, memory);
-        }
-        return fields;
-    }
-
     public Set<Integer> getAccessFlags() {
         return accessFlags;
     }

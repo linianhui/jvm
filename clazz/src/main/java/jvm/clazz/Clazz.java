@@ -17,8 +17,7 @@ public class Clazz {
     private final int superClass;
     private final int interfacesCount;
     private final int[] interfaces;
-    private final int fieldsCount;
-    private final Field[] fields;
+    private final Fields fields;
     private final int methodsCount;
     private final Method[] methods;
     private final int attributesCount;
@@ -35,8 +34,8 @@ public class Clazz {
         this.superClass = memory.readShortAsInt();
         this.interfacesCount = memory.readShortAsInt();
         this.interfaces = memory.readShortAsInts(this.interfacesCount);
-        this.fieldsCount = memory.readShortAsInt();
-        this.fields = Field.from(this, memory, this.fieldsCount);
+        int fieldsCount = memory.readShortAsInt();
+        this.fields = Fields.from(this, memory, fieldsCount);
         this.methodsCount = memory.readShortAsInt();
         this.methods = Method.from(this, memory, this.methodsCount);
         this.attributesCount = memory.readShortAsInt();
@@ -79,11 +78,7 @@ public class Clazz {
         return interfaces;
     }
 
-    public int getFieldsCount() {
-        return fieldsCount;
-    }
-
-    public Field[] getFields() {
+    public Fields getFields() {
         return fields;
     }
 
