@@ -2,7 +2,7 @@ package jvm.clazz;
 
 import java.util.Set;
 
-public class ClassFile {
+public class Clazz {
     private final int magic;
     private final int minorVersion;
     private final int majorVersion;
@@ -20,7 +20,7 @@ public class ClassFile {
     private final int attributesCount;
     private final Attribute[] attributes;
 
-    public ClassFile(final Memory memory) {
+    public Clazz(final Memory memory) {
         this.magic = memory.readInt();
         this.minorVersion = memory.readShortAsInt();
         this.majorVersion = memory.readShortAsInt();
