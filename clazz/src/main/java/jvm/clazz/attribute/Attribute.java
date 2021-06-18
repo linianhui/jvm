@@ -47,5 +47,6 @@ public class Attribute {
         String Signature = "Signature";
         String SourceFile = "SourceFile";
         String Deprecated = "Deprecated";
+        String Code = "Code";
     }
 }

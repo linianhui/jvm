@@ -27,6 +27,8 @@ public class AttributeFactory {
                 return new SourceFileAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.Deprecated:
                 return new DeprecatedAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.Code:
+                return new CodeAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }
