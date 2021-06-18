@@ -1,7 +1,7 @@
 package jvm.clazz.attribute;
 
-import jvm.clazz.Clazz;
 import jvm.clazz.Bytes;
+import jvm.clazz.Clazz;
 
 public class Attribute {
 
@@ -48,5 +48,6 @@ public class Attribute {
         String SourceFile = "SourceFile";
         String Deprecated = "Deprecated";
         String Code = "Code";
+        String Exceptions = "Exceptions";
     }
 }

@@ -29,6 +29,8 @@ public class AttributeFactory {
                 return new DeprecatedAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.Code:
                 return new CodeAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.Exceptions:
+                return new ExceptionsAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }
