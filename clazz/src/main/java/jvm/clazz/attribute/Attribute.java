@@ -51,6 +51,7 @@ public class Attribute {
         String Exceptions = "Exceptions";
         String SourceFile = "SourceFile";
         String LineNumberTable = "LineNumberTable";
+        String LocalVariableTable = "LocalVariableTable";
         String Signature = "Signature";
         String Deprecated = "Deprecated";
     }

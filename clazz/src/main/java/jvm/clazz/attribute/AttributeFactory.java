@@ -33,6 +33,8 @@ public class AttributeFactory {
                 return new ExceptionsAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.LineNumberTable:
                 return new LineNumberTableAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.LocalVariableTable:
+                return new LocalVariableTableAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }
