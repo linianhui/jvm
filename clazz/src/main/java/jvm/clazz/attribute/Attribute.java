@@ -42,12 +42,16 @@ public class Attribute {
         return clazz;
     }
 
+    /**
+     * <a href="https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html#jvms-4.7-310">Table 4.7-B. Predefined class file attributes (by class file format)</a>
+     * **/
     public interface Name {
         String ConstantValue = "ConstantValue";
-        String Signature = "Signature";
-        String SourceFile = "SourceFile";
-        String Deprecated = "Deprecated";
         String Code = "Code";
         String Exceptions = "Exceptions";
+        String SourceFile = "SourceFile";
+        String LineNumberTable = "LineNumberTable";
+        String Signature = "Signature";
+        String Deprecated = "Deprecated";
     }
 }
