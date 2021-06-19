@@ -57,5 +57,6 @@ public class Attribute {
         String Deprecated = "Deprecated";
         String EnclosingMethod = "EnclosingMethod";
         String Signature = "Signature";
+        String SourceDebugExtension = "SourceDebugExtension";
     }
 }
