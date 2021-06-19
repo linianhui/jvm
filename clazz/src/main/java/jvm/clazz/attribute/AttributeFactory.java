@@ -37,6 +37,8 @@ public class AttributeFactory {
                 return new LocalVariableTableAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.InnerClasses:
                 return new InnerClassesAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.Synthetic:
+                return new SyntheticAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }

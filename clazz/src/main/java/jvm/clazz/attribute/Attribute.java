@@ -54,6 +54,7 @@ public class Attribute {
         String LocalVariableTable = "LocalVariableTable";
         String InnerClasses = "InnerClasses";
         String Signature = "Signature";
+        String Synthetic = "Synthetic";
         String Deprecated = "Deprecated";
     }
 }
