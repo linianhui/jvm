@@ -39,6 +39,8 @@ public class AttributeFactory {
                 return new InnerClassesAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.Synthetic:
                 return new SyntheticAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.EnclosingMethod:
+                return new EnclosingMethodAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }

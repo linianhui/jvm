@@ -53,8 +53,9 @@ public class Attribute {
         String LineNumberTable = "LineNumberTable";
         String LocalVariableTable = "LocalVariableTable";
         String InnerClasses = "InnerClasses";
-        String Signature = "Signature";
         String Synthetic = "Synthetic";
         String Deprecated = "Deprecated";
+        String EnclosingMethod = "EnclosingMethod";
+        String Signature = "Signature";
     }
 }
