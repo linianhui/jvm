@@ -58,5 +58,6 @@ public class Attribute {
         String EnclosingMethod = "EnclosingMethod";
         String Signature = "Signature";
         String SourceDebugExtension = "SourceDebugExtension";
+        String LocalVariableTypeTable = "LocalVariableTypeTable";
     }
 }
