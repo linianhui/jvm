@@ -16,6 +16,10 @@ public class LineNumberTableAttribute extends Attribute {
         this.lineNumberTables = LineNumberTables.from(clazz, bytes, exceptionsCount);
     }
 
+    public LineNumberTables getLineNumberTables() {
+        return lineNumberTables;
+    }
+
     public static class LineNumberTable {
         private final Clazz clazz;
         private final int startPC;
