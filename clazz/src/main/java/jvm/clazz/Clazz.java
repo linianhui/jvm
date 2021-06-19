@@ -101,7 +101,7 @@ public class Clazz {
             this.raw = raw;
         }
 
-        static Set<AccessFlag> from(int value) {
+        public static Set<AccessFlag> from(int value) {
             return BitUtil.from(AccessFlag.class, value);
         }
 

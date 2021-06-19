@@ -35,6 +35,8 @@ public class AttributeFactory {
                 return new LineNumberTableAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.LocalVariableTable:
                 return new LocalVariableTableAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.InnerClasses:
+                return new InnerClassesAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }
