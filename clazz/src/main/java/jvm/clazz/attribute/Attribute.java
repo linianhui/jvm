@@ -64,5 +64,15 @@ public class Attribute {
         String RuntimeVisibleParameterAnnotations = "RuntimeVisibleParameterAnnotations";
         String RuntimeInvisibleParameterAnnotations = "RuntimeInvisibleParameterAnnotations";
         String AnnotationDefault = "AnnotationDefault";
+        String StackMapTable = "StackMapTable";
+        String BootstrapMethods = "BootstrapMethods";
+        String RuntimeVisibleTypeAnnotations = "RuntimeVisibleTypeAnnotations";
+        String RuntimeInvisibleTypeAnnotations = "RuntimeInvisibleTypeAnnotations";
+        String MethodParameters = "MethodParameters";
+        String Module = "Module";
+        String ModulePackages = "ModulePackages";
+        String ModuleMainClass = "ModuleMainClass";
+        String NestHost = "NestHost";
+        String NestMembers = "NestMembers";
     }
 }
