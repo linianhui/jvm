@@ -61,5 +61,6 @@ public class Attribute {
         String LocalVariableTypeTable = "LocalVariableTypeTable";
         String RuntimeVisibleAnnotations = "RuntimeVisibleAnnotations";
         String RuntimeInvisibleAnnotations = "RuntimeInvisibleAnnotations";
+        String RuntimeVisibleParameterAnnotations = "RuntimeVisibleParameterAnnotations";
     }
 }
