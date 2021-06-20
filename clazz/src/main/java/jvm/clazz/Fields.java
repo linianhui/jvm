@@ -6,7 +6,8 @@ public class Fields extends Items<Field> {
         super(clazz, count, items);
     }
 
-    public static Fields from(final Clazz clazz, final Bytes bytes, int count) {
+    public static Fields from(final Clazz clazz, final Bytes bytes) {
+        int count = bytes.readShortAsInt();
         final Field[] items = new Field[count];
         for (int i = 0; i < count; i++) {
             items[i] = new Field(clazz, bytes);

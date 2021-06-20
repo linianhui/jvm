@@ -14,8 +14,7 @@ public class InnerClassesAttribute extends Attribute {
 
     protected InnerClassesAttribute(final Clazz clazz, int nameIndex, String name, Bytes bytes) {
         super(clazz, nameIndex, name, bytes, false);
-        int exceptionsCount = bytes.readShortAsInt();
-        this.innerClasses = InnerClasses.from(clazz, bytes, exceptionsCount);
+        this.innerClasses = InnerClasses.from(clazz, bytes);
     }
 
     public InnerClasses getInnerClasses() {
@@ -63,7 +62,8 @@ public class InnerClassesAttribute extends Attribute {
             super(clazz, count, items);
         }
 
-        public static InnerClasses from(final Clazz clazz, final Bytes bytes, int count) {
+        public static InnerClasses from(final Clazz clazz, final Bytes bytes) {
+            int count = bytes.readShortAsInt();
             final InnerClass[] items = new InnerClass[count];
             for (int i = 0; i < count; i++) {
                 items[i] = new InnerClass(clazz, bytes);

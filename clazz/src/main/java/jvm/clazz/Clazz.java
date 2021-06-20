@@ -3,7 +3,6 @@ package jvm.clazz;
 import java.util.Set;
 
 import jvm.clazz.attribute.Attributes;
-import jvm.clazz.constant.ConstantFactory;
 import jvm.clazz.constant.Constants;
 import jvm.clazz.util.BitUtil;
 
@@ -24,17 +23,13 @@ public class Clazz {
         this.magic = bytes.readInt();
         this.minorVersion = bytes.readShortAsInt();
         this.majorVersion = bytes.readShortAsInt();
-        int constantsCount = bytes.readShortAsInt();
-        this.constants = ConstantFactory.from(this, bytes, constantsCount);
+        this.constants = Constants.from(this, bytes);
         this.accessFlags = AccessFlag.from(bytes.readShortAsInt());
         this.thisClass = bytes.readShortAsInt();
         this.superClass = bytes.readShortAsInt();
-        int interfacesCount = bytes.readShortAsInt();
-        this.interfaces = Interfaces.from(this, bytes, interfacesCount);
-        int fieldsCount = bytes.readShortAsInt();
-        this.fields = Fields.from(this, bytes, fieldsCount);
-        int methodsCount = bytes.readShortAsInt();
-        this.methods = Methods.from(this, bytes, methodsCount);
+        this.interfaces = Interfaces.from(this, bytes);
+        this.fields = Fields.from(this, bytes);
+        this.methods = Methods.from(this, bytes);
         this.attributes = Attributes.from(this, bytes);
     }
 

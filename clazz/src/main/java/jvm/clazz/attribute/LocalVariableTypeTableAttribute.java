@@ -12,8 +12,7 @@ public class LocalVariableTypeTableAttribute extends Attribute {
 
     protected LocalVariableTypeTableAttribute(final Clazz clazz, int nameIndex, String name, Bytes bytes) {
         super(clazz, nameIndex, name, bytes, false);
-        int exceptionsCount = bytes.readShortAsInt();
-        this.localVariableTypeTables = LocalVariableTypeTables.from(clazz, bytes, exceptionsCount);
+        this.localVariableTypeTables = LocalVariableTypeTables.from(clazz, bytes);
     }
 
     public LocalVariableTypeTables getLocalVariableTypeTables() {
@@ -67,7 +66,8 @@ public class LocalVariableTypeTableAttribute extends Attribute {
             super(clazz, count, items);
         }
 
-        public static LocalVariableTypeTables from(final Clazz clazz, final Bytes bytes, int count) {
+        public static LocalVariableTypeTables from(final Clazz clazz, final Bytes bytes) {
+            int count = bytes.readShortAsInt();
             final LocalVariableTypeTable[] items = new LocalVariableTypeTable[count];
             for (int i = 0; i < count; i++) {
                 items[i] = new LocalVariableTypeTable(clazz, bytes);

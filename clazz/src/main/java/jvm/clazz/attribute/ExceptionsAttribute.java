@@ -9,8 +9,7 @@ public class ExceptionsAttribute extends Attribute {
 
     protected ExceptionsAttribute(final Clazz clazz, int nameIndex, String name, Bytes bytes) {
         super(clazz, nameIndex, name, bytes, false);
-        int exceptionsCount = bytes.readShortAsInt();
-        this.exceptions = Exceptions.from(clazz, bytes, exceptionsCount);
+        this.exceptions = Exceptions.from(clazz, bytes);
     }
 
     public Exceptions getExceptions() {
@@ -22,7 +21,8 @@ public class ExceptionsAttribute extends Attribute {
             super(clazz, count, items);
         }
 
-        public static Exceptions from(final Clazz clazz, final Bytes bytes, int count) {
+        public static Exceptions from(final Clazz clazz, final Bytes bytes) {
+            int count = bytes.readShortAsInt();
             final Integer[] items = new Integer[count];
             for (int i = 0; i < count; i++) {
                 items[i] = bytes.readShortAsInt();

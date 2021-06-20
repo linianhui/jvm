@@ -4,18 +4,6 @@ import jvm.clazz.Clazz;
 import jvm.clazz.Bytes;
 
 public class ConstantFactory {
-    public static Constants from(final Clazz clazz, final Bytes bytes, int count) {
-        final Constant[] items = new Constant[count + 1];
-        for (int i = 1; i < count; i++) {
-            byte tag = bytes.readByte();
-            items[i] = from(clazz, bytes, tag);
-            if (Constant.Tag.as2Constant(tag)) {
-                i++;
-            }
-        }
-        return new Constants(clazz, count, items);
-    }
-
     public static Constant from(final Clazz clazz, final Bytes bytes, byte tag) {
 
         switch (tag) {

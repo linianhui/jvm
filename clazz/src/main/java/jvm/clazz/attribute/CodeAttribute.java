@@ -18,8 +18,7 @@ public class CodeAttribute extends Attribute {
         this.maxLocals = bytes.readShortAsInt();
         this.codeLength = bytes.readInt();
         this.code = bytes.slice(this.codeLength);
-        int exceptionTableLength = bytes.readShortAsInt();
-        this.exceptionTables = ExceptionTables.from(clazz, bytes, exceptionTableLength);
+        this.exceptionTables = ExceptionTables.from(clazz, bytes);
         this.attributes = Attributes.from(clazz, bytes);
     }
 
@@ -88,7 +87,8 @@ public class CodeAttribute extends Attribute {
             super(clazz, count, items);
         }
 
-        public static ExceptionTables from(final Clazz clazz, final Bytes bytes, int count) {
+        public static ExceptionTables from(final Clazz clazz, final Bytes bytes) {
+            int count = bytes.readShortAsInt();
             final ExceptionTable[] items = new ExceptionTable[count];
             for (int i = 0; i < count; i++) {
                 items[i] = new ExceptionTable(clazz, bytes);

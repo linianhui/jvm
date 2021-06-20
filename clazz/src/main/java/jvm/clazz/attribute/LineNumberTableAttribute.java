@@ -12,8 +12,7 @@ public class LineNumberTableAttribute extends Attribute {
 
     protected LineNumberTableAttribute(final Clazz clazz, int nameIndex, String name, Bytes bytes) {
         super(clazz, nameIndex, name, bytes, false);
-        int exceptionsCount = bytes.readShortAsInt();
-        this.lineNumberTables = LineNumberTables.from(clazz, bytes, exceptionsCount);
+        this.lineNumberTables = LineNumberTables.from(clazz, bytes);
     }
 
     public LineNumberTables getLineNumberTables() {
@@ -49,7 +48,8 @@ public class LineNumberTableAttribute extends Attribute {
             super(clazz, count, items);
         }
 
-        public static LineNumberTables from(final Clazz clazz, final Bytes bytes, int count) {
+        public static LineNumberTables from(final Clazz clazz, final Bytes bytes) {
+            int count = bytes.readShortAsInt();
             final LineNumberTable[] items = new LineNumberTable[count];
             for (int i = 0; i < count; i++) {
                 items[i] = new LineNumberTable(clazz, bytes);

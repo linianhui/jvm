@@ -6,7 +6,8 @@ public class Methods extends Items<Method> {
         super(clazz, count, items);
     }
 
-    public static Methods from(final Clazz clazz, final Bytes bytes, int count) {
+    public static Methods from(final Clazz clazz, final Bytes bytes) {
+        int count = bytes.readShortAsInt();
         final Method[] items = new Method[count];
         for (int i = 0; i < count; i++) {
             items[i] = new Method(clazz, bytes);
