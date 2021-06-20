@@ -52,6 +52,8 @@ public class AttributeFactory {
                 return new MethodParametersAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.ModulePackages:
                 return new ModulePackagesAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.ModuleMainClass:
+                return new ModuleMainClassAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }
