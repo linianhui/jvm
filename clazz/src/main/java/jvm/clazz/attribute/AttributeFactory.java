@@ -44,6 +44,8 @@ public class AttributeFactory {
                 return new RuntimeInvisibleAnnotationsAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.RuntimeVisibleParameterAnnotations:
                 return new RuntimeVisibleParameterAnnotationsAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.RuntimeInvisibleParameterAnnotations:
+                return new RuntimeInvisibleParameterAnnotationsAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }

@@ -62,5 +62,6 @@ public class Attribute {
         String RuntimeVisibleAnnotations = "RuntimeVisibleAnnotations";
         String RuntimeInvisibleAnnotations = "RuntimeInvisibleAnnotations";
         String RuntimeVisibleParameterAnnotations = "RuntimeVisibleParameterAnnotations";
+        String RuntimeInvisibleParameterAnnotations = "RuntimeInvisibleParameterAnnotations";
     }
 }
