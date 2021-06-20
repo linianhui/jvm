@@ -60,5 +60,6 @@ public class Attribute {
         String SourceDebugExtension = "SourceDebugExtension";
         String LocalVariableTypeTable = "LocalVariableTypeTable";
         String RuntimeVisibleAnnotations = "RuntimeVisibleAnnotations";
+        String RuntimeInvisibleAnnotations = "RuntimeInvisibleAnnotations";
     }
 }
