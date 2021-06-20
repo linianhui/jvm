@@ -56,6 +56,8 @@ public class AttributeFactory {
                 return new ModuleMainClassAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.NestHost:
                 return new NestHostAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.NestMembers:
+                return new NestMembersAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }
