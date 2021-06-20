@@ -50,6 +50,8 @@ public class AttributeFactory {
                 return new AnnotationDefaultAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.MethodParameters:
                 return new MethodParametersAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.ModulePackages:
+                return new ModulePackagesAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }

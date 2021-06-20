@@ -6,7 +6,7 @@ import jvm.clazz.Items;
 
 /**
  * <a href="https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html#jvms-4.7.24">MethodParameters Attribute</a>
- * **/
+ **/
 public class MethodParametersAttribute extends Attribute {
     private final MethodParameters methodParameters;
 
