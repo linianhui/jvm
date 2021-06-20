@@ -20,8 +20,7 @@ public class CodeAttribute extends Attribute {
         this.code = bytes.slice(this.codeLength);
         int exceptionTableLength = bytes.readShortAsInt();
         this.exceptionTables = ExceptionTables.from(clazz, bytes, exceptionTableLength);
-        int attributesCount = bytes.readShortAsInt();
-        this.attributes = AttributeFactory.from(clazz, bytes, attributesCount);
+        this.attributes = Attributes.from(clazz, bytes);
     }
 
     public int getMaxStack() {

@@ -2,7 +2,6 @@ package jvm.clazz;
 
 import java.util.Set;
 
-import jvm.clazz.attribute.AttributeFactory;
 import jvm.clazz.attribute.Attributes;
 import jvm.clazz.util.BitUtil;
 
@@ -18,8 +17,7 @@ public class Field {
         this.accessFlags = AccessFlag.from(bytes.readShortAsInt());
         this.nameIndex = bytes.readShortAsInt();
         this.descriptorIndex = bytes.readShortAsInt();
-        int attributesCount = bytes.readShortAsInt();
-        this.attributes = AttributeFactory.from(clazz, bytes, attributesCount);
+        this.attributes = Attributes.from(clazz, bytes);
     }
 
     public Set<AccessFlag> getAccessFlags() {

@@ -2,7 +2,6 @@ package jvm.clazz;
 
 import java.util.Set;
 
-import jvm.clazz.attribute.AttributeFactory;
 import jvm.clazz.attribute.Attributes;
 import jvm.clazz.constant.ConstantFactory;
 import jvm.clazz.constant.Constants;
@@ -36,8 +35,7 @@ public class Clazz {
         this.fields = Fields.from(this, bytes, fieldsCount);
         int methodsCount = bytes.readShortAsInt();
         this.methods = Methods.from(this, bytes, methodsCount);
-        int attributesCount = bytes.readShortAsInt();
-        this.attributes = AttributeFactory.from(this, bytes, attributesCount);
+        this.attributes = Attributes.from(this, bytes);
     }
 
     public int getMagic() {

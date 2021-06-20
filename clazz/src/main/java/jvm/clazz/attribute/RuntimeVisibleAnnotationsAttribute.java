@@ -11,8 +11,7 @@ public class RuntimeVisibleAnnotationsAttribute extends Attribute {
 
     protected RuntimeVisibleAnnotationsAttribute(final Clazz clazz, int nameIndex, String name, Bytes bytes) {
         super(clazz, nameIndex, name, bytes, false);
-        int count = bytes.readShortAsInt();
-        this.annotations = Annotations.from(clazz, bytes, count);
+        this.annotations = Annotations.from(clazz, bytes);
     }
 
     public Annotations getAnnotations() {

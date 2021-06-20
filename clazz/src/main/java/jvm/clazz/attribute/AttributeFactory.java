@@ -4,13 +4,6 @@ import jvm.clazz.Clazz;
 import jvm.clazz.Bytes;
 
 public class AttributeFactory {
-    public static Attributes from(final Clazz clazz, final Bytes bytes, int count) {
-        final Attribute[] items = new Attribute[count];
-        for (int i = 0; i < count; i++) {
-            items[i] = from(clazz, bytes);
-        }
-        return new Attributes(clazz, count, items);
-    }
 
     public static Attribute from(final Clazz clazz, final Bytes bytes) {
         int nameIndex = bytes.readShortAsInt();
