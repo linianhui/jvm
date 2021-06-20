@@ -45,6 +45,8 @@ public class AttributeFactory {
                 return new SourceDebugExtensionAttribute(clazz, nameIndex, name, bytes);
             case Attribute.Name.LocalVariableTypeTable:
                 return new LocalVariableTypeTableAttribute(clazz, nameIndex, name, bytes);
+            case Attribute.Name.RuntimeVisibleAnnotations:
+                return new RuntimeVisibleAnnotationsAttribute(clazz, nameIndex, name, bytes);
             default:
                 return new Attribute(clazz, nameIndex, name, bytes, true);
         }

@@ -59,5 +59,6 @@ public class Attribute {
         String Signature = "Signature";
         String SourceDebugExtension = "SourceDebugExtension";
         String LocalVariableTypeTable = "LocalVariableTypeTable";
+        String RuntimeVisibleAnnotations = "RuntimeVisibleAnnotations";
     }
 }
