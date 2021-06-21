@@ -1,18 +1,14 @@
 package jvm.clazz.constant;
 
 import jvm.clazz.Clazz;
+import jvm.clazz.ClazzAccessor;
 
-public abstract class Constant {
-    private final Clazz clazz;
+public abstract class Constant extends ClazzAccessor {
     private final byte tag;
 
     protected Constant(final Clazz clazz, byte tag) {
-        this.clazz = clazz;
+        super(clazz);
         this.tag = tag;
-    }
-
-    public Clazz getClazz() {
-        return clazz;
     }
 
     public byte getTag() {

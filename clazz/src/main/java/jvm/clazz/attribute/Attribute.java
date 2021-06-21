@@ -2,10 +2,10 @@ package jvm.clazz.attribute;
 
 import jvm.clazz.Bytes;
 import jvm.clazz.Clazz;
+import jvm.clazz.ClazzAccessor;
 
-public class Attribute {
+public class Attribute extends ClazzAccessor {
 
-    private final Clazz clazz;
     private final int nameIndex;
     private final String name;
     private final int length;
@@ -17,7 +17,7 @@ public class Attribute {
         final Bytes bytes,
         final boolean slice
     ) {
-        this.clazz = clazz;
+        super(clazz);
         this.nameIndex = nameIndex;
         this.name = name;
         this.length = bytes.readInt();
@@ -36,10 +36,6 @@ public class Attribute {
 
     public int getLength() {
         return length;
-    }
-
-    public Clazz getClazz() {
-        return clazz;
     }
 
     /**

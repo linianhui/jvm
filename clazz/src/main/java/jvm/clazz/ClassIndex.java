@@ -1,16 +1,11 @@
 package jvm.clazz;
 
-public class ClassIndex {
-    private final Clazz clazz;
+public class ClassIndex extends ClazzAccessor {
     private final int index;
 
     private ClassIndex(final Clazz clazz, int index) {
-        this.clazz = clazz;
+        super(clazz);
         this.index = index;
-    }
-
-    public Clazz getClazz() {
-        return clazz;
     }
 
     public int getIndex() {
@@ -18,7 +13,7 @@ public class ClassIndex {
     }
 
     public String getName() {
-        return clazz.getConstants().getClassString(index);
+        return getConstants().getClassString(index);
     }
 
     public static ClassIndex form(final Clazz clazz, int index) {
