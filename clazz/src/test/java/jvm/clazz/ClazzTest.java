@@ -1,6 +1,8 @@
 package jvm.clazz;
 
 
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -36,5 +38,14 @@ class ClazzTest extends AbstractTest {
         Assertions.assertEquals(2, clazz.getAttributes().getCount());
         Assertions.assertEquals(58, clazz.getAttributes().get(1).getNameIndex());
         Assertions.assertEquals("SourceFile", clazz.getAttributes().get(1).getName());
+    }
+
+    @Test
+    void test_ClassFile_List() {
+        List<byte[]> classFileBytesList = findClassFileBytesList();
+        for (byte[] bytes : classFileBytesList) {
+            Clazz clazz = new Clazz(new Bytes(bytes));
+            Assertions.assertNotNull(clazz);
+        }
     }
 }
