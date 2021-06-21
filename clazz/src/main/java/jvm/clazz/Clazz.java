@@ -61,6 +61,14 @@ public class Clazz {
         return superClass;
     }
 
+    public String getThisClassString() {
+        return constants.getClassString(thisClass);
+    }
+
+    public String getSuperClassString() {
+        return constants.getClassString(superClass);
+    }
+
     public Interfaces getInterfaces() {
         return interfaces;
     }

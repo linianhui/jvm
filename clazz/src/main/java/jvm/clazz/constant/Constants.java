@@ -18,6 +18,14 @@ public class Constants extends Items<Constant> {
         return getUTF8(index).getValue();
     }
 
+    public ClassConstant getClass(int index) {
+        return (ClassConstant) get(index);
+    }
+
+    public String getClassString(int index) {
+        return getUTF8String(getClass(index).getNameIndex());
+    }
+
     public static Constants from(final Clazz clazz, final Bytes bytes) {
         int count = bytes.readShortAsInt();
         final Constant[] items = new Constant[count + 1];

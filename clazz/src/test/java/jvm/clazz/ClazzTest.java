@@ -24,7 +24,9 @@ class ClazzTest extends AbstractTest {
         Assertions.assertTrue(clazz.getAccessFlags().contains(Clazz.AccessFlag.Super));
 
         Assertions.assertEquals(5, clazz.getThisClass());
+        Assertions.assertEquals("class_file_test", clazz.getThisClassString());
         Assertions.assertEquals(20, clazz.getSuperClass());
+        Assertions.assertEquals("java/lang/Object", clazz.getSuperClassString());
 
         Assertions.assertEquals(1, clazz.getInterfaces().getCount());
         Assertions.assertEquals(21, clazz.getInterfaces().get(0));
