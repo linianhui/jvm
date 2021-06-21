@@ -12,8 +12,8 @@ public class Clazz {
     private final int majorVersion;
     private final Constants constants;
     private final Set<AccessFlag> accessFlags;
-    private final int thisClass;
-    private final int superClass;
+    private final ClassIndex thisClass;
+    private final ClassIndex superClass;
     private final Interfaces interfaces;
     private final Fields fields;
     private final Methods methods;
@@ -25,8 +25,8 @@ public class Clazz {
         this.majorVersion = bytes.readShortAsInt();
         this.constants = Constants.from(this, bytes);
         this.accessFlags = AccessFlag.from(bytes.readShortAsInt());
-        this.thisClass = bytes.readShortAsInt();
-        this.superClass = bytes.readShortAsInt();
+        this.thisClass = ClassIndex.form(this, bytes.readShortAsInt());
+        this.superClass = ClassIndex.form(this, bytes.readShortAsInt());
         this.interfaces = Interfaces.from(this, bytes);
         this.fields = Fields.from(this, bytes);
         this.methods = Methods.from(this, bytes);
@@ -53,20 +53,12 @@ public class Clazz {
         return accessFlags;
     }
 
-    public int getThisClass() {
+    public ClassIndex getThisClass() {
         return thisClass;
     }
 
-    public int getSuperClass() {
+    public ClassIndex getSuperClass() {
         return superClass;
-    }
-
-    public String getThisClassString() {
-        return constants.getClassString(thisClass);
-    }
-
-    public String getSuperClassString() {
-        return constants.getClassString(superClass);
     }
 
     public Interfaces getInterfaces() {

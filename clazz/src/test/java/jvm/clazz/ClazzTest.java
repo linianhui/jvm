@@ -23,13 +23,14 @@ class ClazzTest extends AbstractTest {
         Assertions.assertTrue(clazz.getAccessFlags().contains(Clazz.AccessFlag.Public));
         Assertions.assertTrue(clazz.getAccessFlags().contains(Clazz.AccessFlag.Super));
 
-        Assertions.assertEquals(5, clazz.getThisClass());
-        Assertions.assertEquals("class_file_test", clazz.getThisClassString());
-        Assertions.assertEquals(20, clazz.getSuperClass());
-        Assertions.assertEquals("java/lang/Object", clazz.getSuperClassString());
+        Assertions.assertEquals(5, clazz.getThisClass().getIndex());
+        Assertions.assertEquals("class_file_test", clazz.getThisClass().getName());
+        Assertions.assertEquals(20, clazz.getSuperClass().getIndex());
+        Assertions.assertEquals("java/lang/Object", clazz.getSuperClass().getName());
 
         Assertions.assertEquals(1, clazz.getInterfaces().getCount());
-        Assertions.assertEquals(21, clazz.getInterfaces().get(0));
+        Assertions.assertEquals(21, clazz.getInterfaces().get(0).getIndex());
+        Assertions.assertEquals("java/lang/Comparable", clazz.getInterfaces().get(0).getName());
 
         Assertions.assertEquals(9, clazz.getFields().getCount());
         Assertions.assertEquals(43, clazz.getFields().get(8).getNameIndex());
