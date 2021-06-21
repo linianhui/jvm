@@ -5,7 +5,7 @@ import java.util.Set;
 import jvm.clazz.attribute.Attributes;
 import jvm.clazz.util.BitUtil;
 
-public class Field extends ClazzAccessor{
+public class Field extends ClazzAccessor {
     private final Set<AccessFlag> accessFlags;
     private final int nameIndex;
     private final int descriptorIndex;
@@ -33,6 +33,14 @@ public class Field extends ClazzAccessor{
 
     public int getNameIndex() {
         return nameIndex;
+    }
+
+    public String getName() {
+        return getConstants().getUTF8String(nameIndex);
+    }
+
+    public String getDescriptor() {
+        return getConstants().getUTF8String(descriptorIndex);
     }
 
     public enum AccessFlag implements Bit {

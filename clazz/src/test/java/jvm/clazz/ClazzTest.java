@@ -34,9 +34,13 @@ class ClazzTest extends AbstractTest {
 
         Assertions.assertEquals(9, clazz.getFields().getCount());
         Assertions.assertEquals(43, clazz.getFields().get(8).getNameIndex());
+        Assertions.assertEquals("DOUBLE_VALUE", clazz.getFields().get(8).getName());
+        Assertions.assertEquals("D", clazz.getFields().get(8).getDescriptor());
 
         Assertions.assertEquals(4, clazz.getMethods().getCount());
         Assertions.assertEquals(53, clazz.getMethods().get(3).getNameIndex());
+        Assertions.assertEquals("compareTo", clazz.getMethods().get(3).getName());
+        Assertions.assertEquals("(Ljava/lang/Object;)I", clazz.getMethods().get(3).getDescriptor());
 
         Assertions.assertEquals(2, clazz.getAttributes().getCount());
         Assertions.assertEquals(58, clazz.getAttributes().get(1).getNameIndex());

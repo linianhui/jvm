@@ -36,6 +36,14 @@ public class Method extends ClazzAccessor {
         return attributes;
     }
 
+    public String getName() {
+        return getConstants().getUTF8String(nameIndex);
+    }
+
+    public String getDescriptor() {
+        return getConstants().getUTF8String(descriptorIndex);
+    }
+
     public enum AccessFlag implements Bit {
         Public(0x00_01),
         Private(0x00_02),
